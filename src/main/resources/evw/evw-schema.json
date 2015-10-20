@@ -176,6 +176,10 @@
                     "id": "phoneNumber",
                     "type": "string"
                 },
+                "mobilePhoneNumber": {
+                    "id": "mobilePhoneNumber",
+                    "type": "string"
+                },
                 "companyName": {
                     "id": "companyName",
                     "type": "string"
