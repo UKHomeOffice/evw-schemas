@@ -5,7 +5,7 @@
 var schemas = require('../../main/javascript/index');
 var expect = require('chai').expect;
 
-describe('home office schemas', function () {
+describe('evw schemas', function () {
 
     Object.keys(schemas).forEach(function (module) {
         if (schemas.hasOwnProperty(module)) {
