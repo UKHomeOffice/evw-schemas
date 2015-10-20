@@ -1,0 +1,47 @@
+{
+  "objectId": "558d7997ac7ed77d28c6ea92",
+  "passport": {
+    "name": "Stella Burgess",
+    "dateOfBirth": "1985-04-18",
+    "expiryDate": "2023-01-14",
+    "gender": "F",
+    "issueDate": "2001-06-10",
+    "nationality": "KWT",
+    "passportNumber": "575ewe",
+    "placeOfBirth": "Eligendi occaecat ipsum similique reprehenderit ab mollitia voluptatem sit lorem",
+    "placeOfIssue": "Mollitia obcaecati qui quos in hic velit nostrum ea eos debitis saepe non ea laboris aut",
+    "holdOtherNationalities": "Yes",
+    "otherNationalities": "German",
+    "heldPreviousNationalities": "Yes",
+    "previousNationalities": "France"
+  },
+  "payment": {
+    "orderCode": "EVW000000001",
+    "feeInPence": 2000,
+    "paymentDate": "2015-06-26 17:11:12"
+  },
+  "contactDetails": {
+    "emailAddress": "bruce.wayne@gmail.com",
+    "secondEmail" : "kahu@gmail.com",
+    "homeAddress" : "homeAddress",
+    "phoneNumber" : "+20 555 3202",
+    "companyName" : "My company",
+    "occupation"  : "Mechanic"
+  },
+  "journey" : {
+    "travelBy": "Plane",
+    "arrivalTravel" : "BA001",
+    "departureForUKDate" : "2015-06-26 17:11:00",
+    "portOfArrival" : "LHR",
+    "arrivalDate" : "2015-11-26",
+    "arrivalTime" : "21:45",
+    "ukAddress" : "UkAddress",
+    "departureDate": "2015-06-28",
+    "departureTravel": "BA002",
+    "reasonForTravel": "to see the Queen",
+    "travelAlone": "No",
+    "otherTravellers": "John Superman"
+  },
+  "passportFileId": "558d7997ac7ed77d28c6ea93",
+  "referenceId": "QVQZE4C2"
+}

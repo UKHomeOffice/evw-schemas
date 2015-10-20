@@ -1,0 +1,14 @@
+{
+  "name": "evw-schemas",
+  "description": "Evw Schemas",
+  "main": "src/main/javascript/index.js",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha src/test/javascript/ --recursive"
+  }
+}
