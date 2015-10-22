@@ -170,7 +170,29 @@
                 },
                 "homeAddress": {
                     "id": "homeAddress",
-                    "type": "string"
+                    "type": "array",
+                    "items": [
+                        {
+                            "id": "0",
+                            "type": "string"
+                        },
+                        {
+                            "id": "1",
+                            "type": "string"
+                        },
+                        {
+                            "id": "2",
+                            "type": "string"
+                        },
+                        {
+                            "id": "3",
+                            "type": "string"
+                        },
+                        {
+                            "id": "4",
+                            "type": "string"
+                        }
+                    ]
                 },
                 "phoneNumber": {
                     "id": "phoneNumber",
@@ -194,6 +216,7 @@
                 "emailAddress",
                 "homeAddress",
                 "phoneNumber",
+                "mobilePhoneNumber",
                 "companyName",
                 "occupation"
             ]
@@ -233,7 +256,29 @@
                 },
                 "ukAddress": {
                     "id": "ukAddress",
-                    "type": "string"
+                    "type": "array",
+                    "items": [
+                        {
+                            "id": "0",
+                            "type": "string"
+                        },
+                        {
+                            "id": "1",
+                            "type": "string"
+                        },
+                        {
+                            "id": "2",
+                            "type": "string"
+                        },
+                        {
+                            "id": "3",
+                            "type": "string"
+                        },
+                        {
+                            "id": "4",
+                            "type": "string"
+                        }
+                    ]
                 },
                 "departureDate": {
                     "id": "departureDate",

@@ -23,7 +23,7 @@
   "contactDetails": {
     "emailAddress": "bruce.wayne@gmail.com",
     "secondEmail" : "kahu@gmail.com",
-    "homeAddress" : "homeAddress",
+    "homeAddress" : ["homeAddress1", "homeAddress2", "homeAddress3", "homeAddress4", "Postcode"],
     "phoneNumber" : "+20 555 3202",
     "mobilePhoneNumber" : "+20 555 3202",
     "companyName" : "My company",
@@ -36,7 +36,7 @@
     "portOfArrival" : "LHR",
     "arrivalDate" : "2015-11-26",
     "arrivalTime" : "21:45",
-    "ukAddress" : "UkAddress",
+    "ukAddress" : ["UkAddress1", "UkAddress2", "UkAddress3", "UkAddress4", "Postcode"],
     "departureDate": "2015-06-28",
     "departureTravel": "BA002",
     "reasonForTravel": "to see the Queen",
