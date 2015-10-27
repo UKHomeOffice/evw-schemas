@@ -26,6 +26,7 @@
     "homeAddress" : ["homeAddress1", "homeAddress2", "homeAddress3", "homeAddress4", "Postcode"],
     "phoneNumber" : "+20 555 3202",
     "mobilePhoneNumber" : "+20 555 3202",
+    "areYouEmployed" : "Yes",
     "companyName" : "My company",
     "occupation"  : "Mechanic"
   },
