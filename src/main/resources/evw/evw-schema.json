@@ -285,6 +285,18 @@
                     "type": "string",
                     "pattern": "^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"
                 },
+                "departureTime": {
+                    "id": "departureTime",
+                    "type": "string"
+                },
+                "ukDuration": {
+                    "id": "ukDuration",
+                    "type": "string"
+                },
+                "portOfDeparture": {
+                    "id": "portOfDeparture",
+                    "type": "string"
+                },
                 "departureTravel": {
                     "id": "departureTravel",
                     "type": "string"
@@ -310,8 +322,6 @@
                 "arrivalDate",
                 "arrivalTime",
                 "ukAddress",
-                "departureDate",
-                "departureTravel",
                 "reasonForTravel",
                 "travelAlone"
             ],
