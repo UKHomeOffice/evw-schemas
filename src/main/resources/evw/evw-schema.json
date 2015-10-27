@@ -213,6 +213,11 @@
                 "occupation": {
                     "id": "occupation",
                     "type": "string"
+                },
+                "areYouEmployed": {
+                    "id": "areYouEmployed",
+                    "type": "string",
+                    "enum": ["Yes", "No"]
                 }
             },
             "additionalProperties": false,
@@ -220,10 +225,27 @@
                 "emailAddress",
                 "homeAddress",
                 "phoneNumber",
-                "mobilePhoneNumber",
-                "companyName",
-                "occupation"
-            ]
+                "mobilePhoneNumber"
+            ],
+            "dependencies": {
+                "areYouEmployed": {
+                    "oneOf": [{
+                        "properties": {
+                            "areYouEmployed": {
+                                "enum": ["No"]
+                            }
+                        },
+                        "not": { "required": ["companyName", "occupation"] }
+                    }, {
+                        "properties": {
+                            "areYouEmployed": {
+                                "enum": ["Yes"]
+                            }
+                        },
+                        "required": ["companyName", "occupation"]
+                    }]
+                }
+            }
         },
         "journey": {
             "type": "object",
@@ -234,7 +256,8 @@
                     "enum": [
                         "Plane",
                         "Train",
-                        "Boat"
+                        "Boat",
+                        "Land"
                     ]
                 },
                 "departureForUKDate": {
@@ -322,7 +345,6 @@
             "additionalProperties": false,
             "required": [
                 "travelBy",
-                "arrivalTravel",
                 "arrivalDate",
                 "arrivalTime",
                 "ukAddress",
@@ -330,6 +352,23 @@
                 "travelAlone"
             ],
             "dependencies" : {
+                "travelBy": {
+                    "oneOf": [{
+                        "properties": {
+                            "travelBy": {
+                                "enum": ["Land"]
+                            }
+                        },
+                        "not": { "required": ["arrivalTravel"] }
+                    }, {
+                        "properties": {
+                            "travelBy": {
+                                "enum": ["Boat", "Plane", "Train"]
+                            }
+                        },
+                        "required": ["arrivalTravel"]
+                    }]
+                },
                 "travelAlone": {
                     "oneOf": [{
                         "properties": {
