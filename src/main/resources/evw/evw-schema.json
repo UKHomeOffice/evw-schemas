@@ -359,14 +359,14 @@
                                 "enum": ["Land"]
                             }
                         },
-                        "not": { "required": ["arrivalTravel"] }
+                        "not": { "required": ["arrivalTravel", "departureForUKDate"] }
                     }, {
                         "properties": {
                             "travelBy": {
                                 "enum": ["Boat", "Plane", "Train"]
                             }
                         },
-                        "required": ["arrivalTravel"]
+                        "required": ["arrivalTravel", "departureForUKDate"]
                     }]
                 },
                 "travelAlone": {
