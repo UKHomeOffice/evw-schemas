@@ -29,7 +29,8 @@
     "mobilePhoneNumber" : "+20 555 3202",
     "areYouEmployed" : "Yes",
     "companyName" : "My company",
-    "occupation"  : "Mechanic"
+    "occupation"  : "Mechanic",
+    "anyOtherNames" : "The queen of England"
   },
   "journey" : {
     "travelBy": "Plane",

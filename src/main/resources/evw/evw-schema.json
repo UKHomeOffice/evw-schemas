@@ -53,10 +53,6 @@
                     "id": "placeOfBirth",
                     "type": "string"
                 },
-                "anyOtherNames": {
-                    "id": "anyOtherNames",
-                    "type": "string"
-                },
                 "placeOfIssue": {
                     "id": "placeOfIssue",
                     "type": "string"
@@ -218,6 +214,10 @@
                     "id": "areYouEmployed",
                     "type": "string",
                     "enum": ["Yes", "No"]
+                },
+                "anyOtherNames": {
+                    "id": "anyOtherNames",
+                    "type": "string"
                 }
             },
             "additionalProperties": false,
