@@ -57,6 +57,10 @@
                     "id": "anyOtherNames",
                     "type": "string"
                 },
+                "countryOfBirth": {
+                    "id": "countryOfBirth",
+                    "type": "string"
+                },
                 "placeOfIssue": {
                     "id": "placeOfIssue",
                     "type": "string"
