@@ -35,6 +35,7 @@
     ],
     "phoneNumber" : "+20 555 3202",
     "mobilePhoneNumber" : "+20 555 3202",
+    "countryAppliedFrom" : "Zambia",
     "areYouEmployed" : "Yes",
     "companyName" : "My company",
     "occupation"  : "Mechanic"

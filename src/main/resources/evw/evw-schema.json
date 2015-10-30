@@ -206,6 +206,10 @@
                         }
                     ]
                 },
+                "countryAppliedFrom": {
+                    "id": "countryAppliedFrom",
+                    "type": "string"
+                },
                 "phoneNumber": {
                     "id": "phoneNumber",
                     "type": "string"
@@ -232,6 +236,7 @@
             "required": [
                 "emailAddress",
                 "homeAddress",
+                "countryAppliedFrom",
                 "phoneNumber",
                 "mobilePhoneNumber"
             ],
