@@ -25,7 +25,14 @@
   "contactDetails": {
     "emailAddress": "bruce.wayne@gmail.com",
     "secondEmail" : "kahu@gmail.com",
-    "homeAddress" : ["homeAddress1", "homeAddress2", "homeAddress3", "homeAddress4", "Postcode"],
+    "homeAddress" : [
+        "homeAddress1",
+        "homeAddress2",
+        "homeAddress3",
+        "homeAddress4",
+        "postcode",
+        "Kuwait KWT"
+    ],
     "phoneNumber" : "+20 555 3202",
     "mobilePhoneNumber" : "+20 555 3202",
     "areYouEmployed" : "Yes",
