@@ -320,6 +320,14 @@
                     "id": "departureTime",
                     "type": "string"
                 },
+                "inwardDepartureCountry": {
+                    "id": "inwardDepartureCountry",
+                    "type": "string"
+                },
+                "inwardDeparturePort": {
+                    "id": "inwardDeparturePort",
+                    "type": "string"
+                },
                 "ukDuration": {
                     "id": "ukDuration",
                     "type": "string"

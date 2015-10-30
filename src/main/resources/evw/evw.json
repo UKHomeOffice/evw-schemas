@@ -42,6 +42,8 @@
     "ukAddress" : ["UkAddress1", "UkAddress2", "UkAddress3", "UkAddress4", "Postcode"],
     "departureDate": "2015-06-28",
     "departureTime": "10:10",
+    "inwardDepartureCountry": "Jamaica",
+    "inwardDeparturePort": " JMZ",
     "ukDuration": "1 to 3 months",
     "portOfDeparture": "LGW London Gatwick",
     "departureTravel": "BA002",
