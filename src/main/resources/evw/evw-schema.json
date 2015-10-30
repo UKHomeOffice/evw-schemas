@@ -315,6 +315,10 @@
                         }
                     ]
                 },
+                "ukVisitPhoneNumber": {
+                    "id": "ukVisitPhoneNumber",
+                    "type": "string"
+                },
                 "departureDate": {
                     "id": "departureDate",
                     "type": "string",
@@ -355,6 +359,14 @@
                 },
                 "otherTravellers": {
                     "id": "otherTravellers",
+                    "type": "string"
+                },
+                "visitMoreThanOnce": {
+                    "id": "visitMoreThanOnce",
+                    "type": "string"
+                },
+                "knowDepartureDetails": {
+                    "id": "knowDepartureDetails",
                     "type": "string"
                 }
             },
