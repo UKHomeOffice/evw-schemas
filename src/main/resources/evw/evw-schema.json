@@ -320,6 +320,10 @@
                         }
                     ]
                 },
+                "ukVisitPhoneNumber": {
+                    "id": "ukVisitPhoneNumber",
+                    "type": "string"
+                },
                 "departureDate": {
                     "id": "departureDate",
                     "type": "string",
@@ -361,6 +365,16 @@
                 "otherTravellers": {
                     "id": "otherTravellers",
                     "type": "string"
+                },
+                "visitMoreThanOnce": {
+                    "id": "visitMoreThanOnce",
+                    "type": "string",
+                    "enum": ["Yes", "No"]
+                },
+                "knowDepartureDetails": {
+                    "id": "knowDepartureDetails",
+                    "type": "string",
+                    "enum": ["Yes", "No"]
                 }
             },
             "additionalProperties": false,
