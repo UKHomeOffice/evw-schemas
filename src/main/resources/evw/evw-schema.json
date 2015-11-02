@@ -197,11 +197,11 @@
                             "type": "string"
                         },
                         {
-                            "id": "postcode",
+                            "id": "country",
                             "type": "string"
                         },
                         {
-                            "id": "country",
+                            "id": "postcode",
                             "type": "string"
                         }
                     ]
