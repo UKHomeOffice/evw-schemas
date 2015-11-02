@@ -363,11 +363,13 @@
                 },
                 "visitMoreThanOnce": {
                     "id": "visitMoreThanOnce",
-                    "type": "string"
+                    "type": "string",
+                    "enum": ["Yes", "No"]
                 },
                 "knowDepartureDetails": {
                     "id": "knowDepartureDetails",
-                    "type": "string"
+                    "type": "string",
+                    "enum": ["Yes", "No"]
                 }
             },
             "additionalProperties": false,
