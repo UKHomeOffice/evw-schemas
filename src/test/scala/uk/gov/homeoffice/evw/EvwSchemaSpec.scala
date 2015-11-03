@@ -17,13 +17,13 @@ class EvwSchemaSpec extends Specification with Json with JsonFormats {
   "Invalid EVW Entry JSON" should {
     "be missing all top level requirements" in {
       schema.validate("" -> "") must beLike[JValue Or JsonError] {
-        case Bad(JsonError(_, Some(error), _)) => error must contain("""missing: ["contactDetails","journey","objectId","passport","passportFileId","payment","referenceId"]""")
+        case Bad(JsonError(_, Some(error), _)) => error must contain("""missing: ["contactDetails","journey","miscellaneous","objectId","passport","passportFileId","payment","referenceId"]""")
       }
     }
 
     "be missing top level requirement 'reference ID'" in {
       schema.validate("referenceId" -> "A23EJDQA") must beLike[JValue Or JsonError] {
-        case Bad(JsonError(_, Some(error), _)) => error must contain("""missing: ["contactDetails","journey","objectId","passport","passportFileId","payment"]""")
+        case Bad(JsonError(_, Some(error), _)) => error must contain("""missing: ["contactDetails","journey","miscellaneous","objectId","passport","passportFileId","payment"]""")
       }
     }
 
@@ -129,6 +129,14 @@ class EvwSchemaSpec extends Specification with Json with JsonFormats {
         replace(json \ "contactDetails" \ "emailAddress" -> "definitely.not.an.email")
       } must beLike[JValue Or JsonError] {
         case Bad(JsonError(_, Some(error), _)) => error must contain(""""pointer":"/contactDetails/emailAddress"""")
+      }
+    }
+
+    "have invalid 'completers email address'" in {
+      schema validate {
+        replace(json \ "miscellaneous" \ "completersEmailAddress" -> "definitely.not.an.email")
+      } must beLike[JValue Or JsonError] {
+        case Bad(JsonError(_, Some(error), _)) => error must contain(""""pointer":"/miscellaneous/completersEmailAddress"""")
       }
     }
 
