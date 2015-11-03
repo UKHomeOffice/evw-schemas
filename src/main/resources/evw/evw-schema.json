@@ -420,8 +420,85 @@
                         },
                         "required": ["otherTravellers"]
                     }]
+                },
+                "knowDepartureDetails": {
+                    "oneOf": [{
+                        "properties": {
+                            "knowDepartureDetails": {
+                                "enum": ["Yes"]
+                            }
+                        },
+                        "required": ["departureTravel", "portOfDeparture", "departureDate", "departureTime"],
+                        "not": { "required": ["ukDuration"] }
+                    }, {
+                        "properties": {
+                            "knowDepartureDetails": {
+                                "enum": ["No"]
+                            }
+                        },
+                        "required": ["ukDuration"],
+                        "not": { "required": ["departureTravel", "portOfDeparture", "departureDate", "departureTime"] }
+                    }]
                 }
             }
+        },
+        "miscellaneous": {
+            "type": "object",
+            "properties": {
+                "onBehalfOfMinor": {
+                    "id": "onBehalfOfMinor",
+                    "type": "string",
+                    "enum": ["Yes", "No"]
+                },
+                "asAnAgent": {
+                    "id": "asAnAgent",
+                    "type": "string",
+                    "enum": ["Yes", "No"]
+                },
+                "completersContactDetails": {
+                    "id": "completersContactDetails",
+                    "type": "string"
+                },
+                "completersEmailAddress": {
+                    "id": "completersEmailAddress",
+                    "type": "string",
+                    "pattern": "^[^@]+@[^@]+\\.[^@]+$"
+                }
+            },
+            "dependencies": {
+                "onBehalfOfMinor": {
+                    "oneOf": [{
+                        "properties": {
+                            "onBehalfOfMinor": { "enum": ["Yes"] },
+                            "asAnAgent": { "enum": ["Yes"] }
+                        },
+                        "required": ["completersContactDetails", "completersEmailAddress"]
+                    }, {
+                        "properties": {
+                            "onBehalfOfMinor": { "enum": ["Yes"] },
+                            "asAnAgent": { "enum": ["No"] }
+                        },
+                        "required": ["completersContactDetails", "completersEmailAddress"]
+                    }, {
+                        "properties": {
+                            "onBehalfOfMinor": { "enum": ["No"] },
+                            "asAnAgent": { "enum": ["Yes"] }
+                        },
+                        "required": ["completersContactDetails", "completersEmailAddress"]
+                    }, {
+                        "properties": {
+                            "onBehalfOfMinor": { "enum": ["No"] },
+                            "asAnAgent": { "enum": ["No"] }
+                        },
+                        "additionalProperties": false
+                    }]
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "onBehalfOfMinor",
+                "asAnAgent"
+            ]
         },
         "passportFileId": {
             "id": "passportFileId",
@@ -441,6 +518,7 @@
         "payment",
         "contactDetails",
         "journey",
+        "miscellaneous",
         "passportFileId",
         "referenceId"
     ]

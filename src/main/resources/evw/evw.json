@@ -55,12 +55,17 @@
     "knowDepartureDetails": "Yes",
     "inwardDepartureCountry": "Jamaica",
     "inwardDeparturePort": " JMZ",
-    "ukDuration": "1 to 3 months",
     "portOfDeparture": "LGW London Gatwick",
     "departureTravel": "BA002",
     "reasonForTravel": "to see the Queen",
     "travelAlone": "No",
     "otherTravellers": "John Superman"
+  },
+  "miscellaneous" : {
+    "onBehalfOfMinor" : "No",
+    "asAnAgent" : "Yes",
+    "completersContactDetails" : "Bill Murray",
+    "completersEmailAddress" : "agent@test.com"
   },
   "passportFileId": "558d7997ac7ed77d28c6ea93",
   "referenceId": "QVQZE4C2"
