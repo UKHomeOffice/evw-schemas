@@ -58,7 +58,7 @@
     "portOfDeparture": "LGW London Gatwick",
     "departureTravel": "BA002",
     "reasonForTravel": "to see the Queen",
-    "travelAlone": "No",
+    "travelWithOthers": "Yes",
     "otherTravellers": "John Superman"
   },
   "miscellaneous" : {

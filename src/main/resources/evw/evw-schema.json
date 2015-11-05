@@ -357,8 +357,8 @@
                     "id": "reasonForTravel",
                     "type": "string"
                 },
-                "travelAlone": {
-                    "id": "travelAlone",
+                "travelWithOthers": {
+                    "id": "travelWithOthers",
                     "type": "string",
                     "enum": ["Yes", "No"]
                 },
@@ -384,7 +384,7 @@
                 "arrivalTime",
                 "ukAddress",
                 "reasonForTravel",
-                "travelAlone"
+                "travelWithOthers"
             ],
             "dependencies" : {
                 "travelBy": {
@@ -404,18 +404,18 @@
                         "required": ["arrivalTravel", "departureForUKDate"]
                     }]
                 },
-                "travelAlone": {
+                "travelWithOthers": {
                     "oneOf": [{
                         "properties": {
-                            "travelAlone": {
-                                "enum": ["Yes"]
+                            "travelWithOthers": {
+                                "enum": ["No"]
                             }
                         },
                         "not": { "required": ["otherTravellers"] }
                     }, {
                         "properties": {
-                            "travelAlone": {
-                                "enum": ["No"]
+                            "travelWithOthers": {
+                                "enum": ["Yes"]
                             }
                         },
                         "required": ["otherTravellers"]
