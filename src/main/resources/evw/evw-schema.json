@@ -1,525 +1,665 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "/",
-    "type": "object",
-    "properties": {
-        "objectId": {
-            "id": "objectId",
-            "type": "string"
-        },
-        "passport": {
-            "id": "passport",
-            "type": "object",
-            "properties": {
-                "name": {
-                    "id": "name",
-                    "type": "string"
-                },
-                "dateOfBirth": {
-                    "id": "dateOfBirth",
-                    "type": "string",
-                    "pattern": "^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"
-                },
-                "expiryDate": {
-                    "id": "expiryDate",
-                    "type": "string",
-                    "pattern": "^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"
-                },
-                "gender": {
-                    "id": "gender",
-                    "type": "string",
-                    "enum": [
-                        "M",
-                        "F"
-                    ]
-                },
-                "issueDate": {
-                    "id": "issueDate",
-                    "type": "string",
-                    "pattern": "^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"
-                },
-                "nationality": {
-                    "id": "nationality",
-                    "type": "string",
-                    "enum": [
-                        "KWT"
-                    ]
-                },
-                "passportNumber": {
-                    "id": "passportNumber",
-                    "type": "string"
-                },
-                "placeOfBirth": {
-                    "id": "placeOfBirth",
-                    "type": "string"
-                },
-                "anyOtherNames": {
-                    "id": "anyOtherNames",
-                    "type": "string"
-                },
-                "countryOfBirth": {
-                    "id": "countryOfBirth",
-                    "type": "string"
-                },
-                "placeOfIssue": {
-                    "id": "placeOfIssue",
-                    "type": "string"
-                },
-                "holdOtherNationalities": {
-                    "id": "holdOtherNationalities",
-                    "type": "string",
-                    "enum": ["Yes", "No"]
-                },
-                "otherNationalities": {
-                    "id": "otherNationalities",
-                    "type": "string"
-                },
-                "heldPreviousNationalities": {
-                    "id": "heldPreviousNationalities",
-                    "type": "string",
-                    "enum": ["Yes", "No"]
-                },
-                "previousNationalities": {
-                    "id": "previousNationalities",
-                    "type": "string"
-                }
-            },
-            "additionalProperties": false,
-            "required": [
-                "name",
-                "dateOfBirth",
-                "expiryDate",
-                "gender",
-                "issueDate",
-                "nationality",
-                "passportNumber",
-                "placeOfBirth",
-                "placeOfIssue",
-                "holdOtherNationalities",
-                "heldPreviousNationalities"
-            ],
-            "dependencies": {
-                "holdOtherNationalities": {
-                    "oneOf": [{
-                        "properties": {
-                            "holdOtherNationalities": {
-                                "enum": ["No"]
-                            }
-                        },
-                        "not": { "required": ["otherNationalities"] }
-                    }, {
-                        "properties": {
-                            "holdOtherNationalities": {
-                                "enum": ["Yes"]
-                            }
-                        },
-                        "required": ["otherNationalities"]
-                    }]
-                },
-                "heldPreviousNationalities": {
-                    "oneOf": [{
-                        "properties": {
-                            "heldPreviousNationalities": {
-                                "enum": ["No"]
-                            }
-                        },
-                        "not": { "required": ["previousNationalities"] }
-                    }, {
-                        "properties": {
-                            "heldPreviousNationalities": {
-                                "enum": ["Yes"]
-                            }
-                        },
-                        "required": ["previousNationalities"]
-                    }]
-                }
-            }
-        },
-        "payment": {
-            "id": "payment",
-            "type": "object",
-            "properties": {
-                "orderCode": {
-                    "id": "orderCode",
-                    "type": "string"
-                },
-                "feeInPence": {
-                    "id": "feeInPence",
-                    "type": "integer",
-                    "minimum": 0,
-                    "maximum": 10000
-                },
-                "paymentDate": {
-                    "id": "paymentDate",
-                    "type": "string",
-                    "pattern": "^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([0-9]{2}):([0-9]{2}):([0-9]{2})$"
-                }
-            },
-            "additionalProperties": false,
-            "required": [
-                "orderCode",
-                "feeInPence",
-                "paymentDate"
-            ]
-        },
-        "contactDetails": {
-            "id": "contactDetails",
-            "type": "object",
-            "properties": {
-                "emailAddress": {
-                    "id": "emailAddress",
-                    "type": "string",
-                    "pattern": "^[^@]+@[^@]+\\.[^@]+$"
-                },
-                "secondEmail": {
-                    "id": "secondEmail",
-                    "type": "string",
-                    "pattern": "^[^@]+@[^@]+\\.[^@]+$"
-                },
-                "homeAddress": {
-                    "id": "homeAddress",
-                    "type": "array",
-                    "items": [
-                        {
-                            "id": "0",
-                            "type": "string"
-                        },
-                        {
-                            "id": "1",
-                            "type": "string"
-                        },
-                        {
-                            "id": "2",
-                            "type": "string"
-                        },
-                        {
-                            "id": "3",
-                            "type": "string"
-                        },
-                        {
-                            "id": "country",
-                            "type": "string"
-                        },
-                        {
-                            "id": "postcode",
-                            "type": "string"
-                        }
-                    ]
-                },
-                "countryAppliedFrom": {
-                    "id": "countryAppliedFrom",
-                    "type": "string"
-                },
-                "phoneNumber": {
-                    "id": "phoneNumber",
-                    "type": "string"
-                },
-                "mobilePhoneNumber": {
-                    "id": "mobilePhoneNumber",
-                    "type": "string"
-                },
-                "companyName": {
-                    "id": "companyName",
-                    "type": "string"
-                },
-                "occupation": {
-                    "id": "occupation",
-                    "type": "string"
-                },
-                "areYouEmployed": {
-                    "id": "areYouEmployed",
-                    "type": "string",
-                    "enum": ["Yes", "No"]
-                }
-            },
-            "additionalProperties": false,
-            "required": [
-                "emailAddress",
-                "homeAddress",
-                "countryAppliedFrom",
-                "phoneNumber",
-                "mobilePhoneNumber"
-            ],
-            "dependencies": {
-                "areYouEmployed": {
-                    "oneOf": [{
-                        "properties": {
-                            "areYouEmployed": {
-                                "enum": ["No"]
-                            }
-                        },
-                        "not": { "required": ["companyName", "occupation"] }
-                    }, {
-                        "properties": {
-                            "areYouEmployed": {
-                                "enum": ["Yes"]
-                            }
-                        },
-                        "required": ["companyName", "occupation"]
-                    }]
-                }
-            }
-        },
-        "journey": {
-            "type": "object",
-            "properties": {
-                "travelBy": {
-                    "id": "travelBy",
-                    "type": "string",
-                    "enum": [
-                        "Plane",
-                        "Train",
-                        "Boat",
-                        "Land"
-                    ]
-                },
-                "departureForUKDate": {
-                    "id": "departureForUKDate",
-                    "type": "string"
-                },
-                "portOfArrival": {
-                    "id": "portOfArrival",
-                    "type": "string"
-                },
-                "arrivalTravel": {
-                    "id": "arrivalTravel",
-                    "type": "string"
-                },
-                "arrivalDate": {
-                    "id": "arrivalDate",
-                    "type": "string",
-                    "pattern": "^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"
-                },
-                "arrivalTime": {
-                    "id": "arrivalTime",
-                    "type": "string"
-                },
-                "ukAddress": {
-                    "id": "ukAddress",
-                    "type": "array",
-                    "items": [
-                        {
-                            "id": "0",
-                            "type": "string"
-                        },
-                        {
-                            "id": "1",
-                            "type": "string"
-                        },
-                        {
-                            "id": "2",
-                            "type": "string"
-                        },
-                        {
-                            "id": "3",
-                            "type": "string"
-                        },
-                        {
-                            "id": "4",
-                            "type": "string"
-                        }
-                    ]
-                },
-                "ukVisitPhoneNumber": {
-                    "id": "ukVisitPhoneNumber",
-                    "type": "string"
-                },
-                "departureDate": {
-                    "id": "departureDate",
-                    "type": "string",
-                    "pattern": "^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"
-                },
-                "departureTime": {
-                    "id": "departureTime",
-                    "type": "string"
-                },
-                "inwardDepartureCountry": {
-                    "id": "inwardDepartureCountry",
-                    "type": "string"
-                },
-                "inwardDeparturePort": {
-                    "id": "inwardDeparturePort",
-                    "type": "string"
-                },
-                "ukDuration": {
-                    "id": "ukDuration",
-                    "type": "string"
-                },
-                "portOfDeparture": {
-                    "id": "portOfDeparture",
-                    "type": "string"
-                },
-                "departureTravel": {
-                    "id": "departureTravel",
-                    "type": "string"
-                },
-                "reasonForTravel": {
-                    "id": "reasonForTravel",
-                    "type": "string"
-                },
-                "travelWithOthers": {
-                    "id": "travelWithOthers",
-                    "type": "string",
-                    "enum": ["Yes", "No"]
-                },
-                "otherTravellers": {
-                    "id": "otherTravellers",
-                    "type": "string"
-                },
-                "visitMoreThanOnce": {
-                    "id": "visitMoreThanOnce",
-                    "type": "string",
-                    "enum": ["Yes", "No"]
-                },
-                "knowDepartureDetails": {
-                    "id": "knowDepartureDetails",
-                    "type": "string",
-                    "enum": ["Yes", "No"]
-                }
-            },
-            "additionalProperties": false,
-            "required": [
-                "travelBy",
-                "arrivalDate",
-                "arrivalTime",
-                "ukAddress",
-                "reasonForTravel",
-                "travelWithOthers"
-            ],
-            "dependencies" : {
-                "travelBy": {
-                    "oneOf": [{
-                        "properties": {
-                            "travelBy": {
-                                "enum": ["Land"]
-                            }
-                        },
-                        "not": { "required": ["arrivalTravel", "departureForUKDate"] }
-                    }, {
-                        "properties": {
-                            "travelBy": {
-                                "enum": ["Boat", "Plane", "Train"]
-                            }
-                        },
-                        "required": ["arrivalTravel", "departureForUKDate"]
-                    }]
-                },
-                "travelWithOthers": {
-                    "oneOf": [{
-                        "properties": {
-                            "travelWithOthers": {
-                                "enum": ["No"]
-                            }
-                        },
-                        "not": { "required": ["otherTravellers"] }
-                    }, {
-                        "properties": {
-                            "travelWithOthers": {
-                                "enum": ["Yes"]
-                            }
-                        },
-                        "required": ["otherTravellers"]
-                    }]
-                },
-                "knowDepartureDetails": {
-                    "oneOf": [{
-                        "properties": {
-                            "knowDepartureDetails": {
-                                "enum": ["Yes"]
-                            }
-                        },
-                        "required": ["departureTravel", "portOfDeparture", "departureDate", "departureTime"],
-                        "not": { "required": ["ukDuration"] }
-                    }, {
-                        "properties": {
-                            "knowDepartureDetails": {
-                                "enum": ["No"]
-                            }
-                        },
-                        "required": ["ukDuration"],
-                        "not": { "required": ["departureTravel", "portOfDeparture", "departureDate", "departureTime"] }
-                    }]
-                }
-            }
-        },
-        "miscellaneous": {
-            "type": "object",
-            "properties": {
-                "onBehalfOfMinor": {
-                    "id": "onBehalfOfMinor",
-                    "type": "string",
-                    "enum": ["Yes", "No"]
-                },
-                "asAnAgent": {
-                    "id": "asAnAgent",
-                    "type": "string",
-                    "enum": ["Yes", "No"]
-                },
-                "completersContactDetails": {
-                    "id": "completersContactDetails",
-                    "type": "string"
-                },
-                "completersEmailAddress": {
-                    "id": "completersEmailAddress",
-                    "type": "string",
-                    "pattern": "^[^@]+@[^@]+\\.[^@]+$"
-                }
-            },
-            "dependencies": {
-                "onBehalfOfMinor": {
-                    "oneOf": [{
-                        "properties": {
-                            "onBehalfOfMinor": { "enum": ["Yes"] },
-                            "asAnAgent": { "enum": ["Yes"] }
-                        },
-                        "required": ["completersContactDetails", "completersEmailAddress"]
-                    }, {
-                        "properties": {
-                            "onBehalfOfMinor": { "enum": ["Yes"] },
-                            "asAnAgent": { "enum": ["No"] }
-                        },
-                        "required": ["completersContactDetails", "completersEmailAddress"]
-                    }, {
-                        "properties": {
-                            "onBehalfOfMinor": { "enum": ["No"] },
-                            "asAnAgent": { "enum": ["Yes"] }
-                        },
-                        "required": ["completersContactDetails", "completersEmailAddress"]
-                    }, {
-                        "properties": {
-                            "onBehalfOfMinor": { "enum": ["No"] },
-                            "asAnAgent": { "enum": ["No"] }
-                        },
-                        "additionalProperties": false
-                    }]
-                }
-            },
-            "additionalProperties": false,
-            "required": [
-                "onBehalfOfMinor",
-                "asAnAgent"
-            ]
-        },
-        "passportFileId": {
-            "id": "passportFileId",
-            "type": "string",
-            "pattern": "[0-9a-f]{24}"
-        },
-        "referenceId": {
-            "id": "referenceId",
-            "type": "string",
-            "pattern": "[A-Z\\d]{8}"
-        }
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "/",
+  "type": "object",
+  "properties": {
+    "objectId": {
+      "id": "objectId",
+      "type": "string"
     },
-    "additionalProperties": false,
-    "required":[
-        "objectId",
-        "passport",
-        "payment",
-        "contactDetails",
-        "journey",
-        "miscellaneous",
-        "passportFileId",
-        "referenceId"
-    ]
+    "passport": {
+      "id": "passport",
+      "type": "object",
+      "properties": {
+        "name": {
+          "id": "name",
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "id": "dateOfBirth",
+          "type": "string",
+          "pattern": "^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"
+        },
+        "expiryDate": {
+          "id": "expiryDate",
+          "type": "string",
+          "pattern": "^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"
+        },
+        "gender": {
+          "id": "gender",
+          "type": "string",
+          "enum": [
+            "M",
+            "F"
+          ]
+        },
+        "issueDate": {
+          "id": "issueDate",
+          "type": "string",
+          "pattern": "^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"
+        },
+        "nationality": {
+          "id": "nationality",
+          "type": "string",
+          "enum": [
+            "KWT"
+          ]
+        },
+        "passportNumber": {
+          "id": "passportNumber",
+          "type": "string",
+          "maxLength": 15,
+          "minLength": 4
+        },
+        "placeOfBirth": {
+          "id": "placeOfBirth",
+          "type": "string",
+          "maxLength": 100,
+          "minLength": 1
+        },
+        "anyOtherNames": {
+          "id": "anyOtherNames",
+          "type": "string",
+          "maxLength": 50,
+          "minLength": 1
+        },
+        "countryOfBirth": {
+          "id": "countryOfBirth",
+          "type": "string",
+          "maxLength": 100
+        },
+        "placeOfIssue": {
+          "id": "placeOfIssue",
+          "type": "string",
+          "maxLength": 20
+        },
+        "holdOtherNationalities": {
+          "id": "holdOtherNationalities",
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        },
+        "otherNationalities": {
+          "id": "otherNationalities",
+          "type": "string",
+          "maxLength": 100
+        },
+        "heldPreviousNationalities": {
+          "id": "heldPreviousNationalities",
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        },
+        "previousNationalities": {
+          "id": "previousNationalities",
+          "type": "string",
+          "maxLength": 100
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "dateOfBirth",
+        "expiryDate",
+        "gender",
+        "issueDate",
+        "nationality",
+        "passportNumber",
+        "placeOfBirth",
+        "placeOfIssue",
+        "holdOtherNationalities",
+        "heldPreviousNationalities"
+      ],
+      "dependencies": {
+        "holdOtherNationalities": {
+          "oneOf": [
+            {
+              "properties": {
+                "holdOtherNationalities": {
+                  "enum": ["No"]
+                }
+              },
+              "not": {"required": ["otherNationalities"]}
+            },
+            {
+              "properties": {
+                "holdOtherNationalities": {
+                  "enum": ["Yes"]
+                }
+              },
+              "required": ["otherNationalities"]
+            }
+          ]
+        },
+        "heldPreviousNationalities": {
+          "oneOf": [
+            {
+              "properties": {
+                "heldPreviousNationalities": {
+                  "enum": ["No"]
+                }
+              },
+              "not": {"required": ["previousNationalities"]}
+            },
+            {
+              "properties": {
+                "heldPreviousNationalities": {
+                  "enum": ["Yes"]
+                }
+              },
+              "required": ["previousNationalities"]
+            }
+          ]
+        }
+      }
+    },
+    "payment": {
+      "id": "payment",
+      "type": "object",
+      "properties": {
+        "orderCode": {
+          "id": "orderCode",
+          "type": "string"
+        },
+        "feeInPence": {
+          "id": "feeInPence",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "paymentDate": {
+          "id": "paymentDate",
+          "type": "string",
+          "pattern": "^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([0-9]{2}):([0-9]{2}):([0-9]{2})$"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "orderCode",
+        "feeInPence",
+        "paymentDate"
+      ]
+    },
+    "contactDetails": {
+      "id": "contactDetails",
+      "type": "object",
+      "properties": {
+        "emailAddress": {
+          "id": "emailAddress",
+          "type": "string",
+          "pattern": "^[^@]+@[^@]+\\.[^@]+$",
+          "maxLength":127
+        },
+        "secondEmail": {
+          "id": "secondEmail",
+          "type": "string",
+          "pattern": "^[^@]+@[^@]+\\.[^@]+$",
+          "maxLength":127
+        },
+        "homeAddress": {
+          "id": "homeAddress",
+          "type": "array",
+          "items": [
+            {
+              "id": "0",
+              "type": "string",
+              "maxLength": 35
+            },
+            {
+              "id": "1",
+              "type": "string",
+              "maxLength": 35
+            },
+            {
+              "id": "2",
+              "type": "string",
+              "maxLength": 35
+            },
+            {
+              "id": "3",
+              "type": "string",
+              "maxLength": 35
+            },
+            {
+              "id": "country",
+              "type": "string",
+              "maxLength": 100
+            },
+            {
+              "id": "postcode",
+              "type": "string",
+              "maxLength": 35
+            }
+          ]
+        },
+        "countryAppliedFrom": {
+          "id": "countryAppliedFrom",
+          "type": "string",
+          "maxLength": 100
+        },
+        "phoneNumber": {
+          "id": "phoneNumber",
+          "type": "string",
+          "maxLength": 20,
+          "minLength":7,
+          "pattern":"^\\+?[0-9-()\\s]+$"
+        },
+        "mobilePhoneNumber": {
+          "id": "mobilePhoneNumber",
+          "type": "string",
+          "maxLength": 20,
+          "minLength":7,
+          "pattern":"^\\+?[0-9-()\\s]+$"
+        },
+        "companyName": {
+          "id": "companyName",
+          "type": "string",
+          "maxLength": 60
+        },
+        "occupation": {
+          "id": "occupation",
+          "type": "string",
+          "maxLength": 100
+
+        },
+        "areYouEmployed": {
+          "id": "areYouEmployed",
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "emailAddress",
+        "homeAddress",
+        "countryAppliedFrom",
+        "phoneNumber",
+        "mobilePhoneNumber"
+      ],
+      "dependencies": {
+        "areYouEmployed": {
+          "oneOf": [
+            {
+              "properties": {
+                "areYouEmployed": {
+                  "enum": ["No"]
+                }
+              },
+              "not": {
+                "required": [
+                  "companyName",
+                  "occupation"
+                ]
+              }
+            },
+            {
+              "properties": {
+                "areYouEmployed": {
+                  "enum": ["Yes"]
+                }
+              },
+              "required": [
+                "companyName",
+                "occupation"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "journey": {
+      "type": "object",
+      "properties": {
+        "travelBy": {
+          "id": "travelBy",
+          "type": "string",
+          "enum": [
+            "Plane",
+            "Train",
+            "Boat",
+            "Land"
+          ]
+        },
+        "departureForUKDate": {
+          "id": "departureForUKDate",
+          "type": "string",
+          "pattern":"^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([0-9]{2}):([0-9]{2}):([0-9]{2})$"
+        },
+        "portOfArrival": {
+          "id": "portOfArrival",
+          "type": "string",
+          "maxLength":30
+
+        },
+        "arrivalTravel": {
+          "id": "arrivalTravel",
+          "type": "string",
+          "maxLength":30
+        },
+        "arrivalDate": {
+          "id": "arrivalDate",
+          "type": "string",
+          "pattern": "^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"
+        },
+        "arrivalTime": {
+          "id": "arrivalTime",
+          "type": "string",
+          "pattern":"^([0-9]{2}):([0-9]{2})$"
+        },
+        "ukAddress": {
+          "id": "ukAddress",
+          "type": "array",
+          "items": [
+            {
+              "id": "0",
+              "type": "string",
+              "maxLength":35
+            },
+            {
+              "id": "1",
+              "type": "string",
+              "maxLength":35
+            },
+            {
+              "id": "2",
+              "type": "string",
+              "maxLength":35
+            },
+            {
+              "id": "3",
+              "type": "string",
+              "maxLength":35
+            },
+            {
+              "id": "4",
+              "type": "string",
+              "maxLength":35
+            }
+          ]
+        },
+        "ukVisitPhoneNumber": {
+          "id": "ukVisitPhoneNumber",
+          "type": "string",
+          "maxLength":20,
+          "minLength":11,
+          "pattern":"^\\+?[0-9-()\\s]+$"
+        },
+        "departureDate": {
+          "id": "departureDate",
+          "type": "string",
+          "pattern": "^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"
+        },
+        "departureTime": {
+          "id": "departureTime",
+          "type": "string",
+          "pattern":"^([0-9]{2}):([0-9]{2})$"
+        },
+        "inwardDepartureCountry": {
+          "id": "inwardDepartureCountry",
+          "type": "string",
+          "maxLength":100
+
+        },
+        "inwardDeparturePort": {
+          "id": "inwardDeparturePort",
+          "type": "string",
+          "maxLength":100
+        },
+        "ukDuration": {
+          "id": "ukDuration",
+          "type": "string"
+        },
+        "portOfDeparture": {
+          "id": "portOfDeparture",
+          "type": "string",
+          "maxLength":100
+
+        },
+        "departureTravel": {
+          "id": "departureTravel",
+          "type": "string",
+          "maxLength":30
+        },
+        "reasonForTravel": {
+          "id": "reasonForTravel",
+          "type": "string",
+          "maxLength":30
+        },
+        "travelWithOthers": {
+          "id": "travelWithOthers",
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        },
+        "otherTravellers": {
+          "id": "otherTravellers",
+          "type": "string",
+          "maxLength":200
+
+        },
+        "visitMoreThanOnce": {
+          "id": "visitMoreThanOnce",
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        },
+        "knowDepartureDetails": {
+          "id": "knowDepartureDetails",
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "travelBy",
+        "arrivalDate",
+        "arrivalTime",
+        "ukAddress",
+        "reasonForTravel",
+        "travelWithOthers"
+      ],
+      "dependencies": {
+        "travelBy": {
+          "oneOf": [
+            {
+              "properties": {
+                "travelBy": {
+                  "enum": ["Land"]
+                }
+              },
+              "not": {
+                "required": [
+                  "arrivalTravel",
+                  "departureForUKDate"
+                ]
+              }
+            },
+            {
+              "properties": {
+                "travelBy": {
+                  "enum": [
+                    "Boat",
+                    "Plane",
+                    "Train"
+                  ]
+                }
+              },
+              "required": [
+                "arrivalTravel",
+                "departureForUKDate"
+              ]
+            }
+          ]
+        },
+        "travelWithOthers": {
+          "oneOf": [
+            {
+              "properties": {
+                "travelWithOthers": {
+                  "enum": ["No"]
+                }
+              },
+              "not": {"required": ["otherTravellers"]}
+            },
+            {
+              "properties": {
+                "travelWithOthers": {
+                  "enum": ["Yes"]
+                }
+              },
+              "required": ["otherTravellers"]
+            }
+          ]
+        },
+        "knowDepartureDetails": {
+          "oneOf": [
+            {
+              "properties": {
+                "knowDepartureDetails": {
+                  "enum": ["Yes"]
+                }
+              },
+              "required": [
+                "departureTravel",
+                "portOfDeparture",
+                "departureDate",
+                "departureTime"
+              ],
+              "not": {"required": ["ukDuration"]}
+            },
+            {
+              "properties": {
+                "knowDepartureDetails": {
+                  "enum": ["No"]
+                }
+              },
+              "required": ["ukDuration"],
+              "not": {
+                "required": [
+                  "departureTravel",
+                  "portOfDeparture",
+                  "departureDate",
+                  "departureTime"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "miscellaneous": {
+      "type": "object",
+      "properties": {
+        "onBehalfOfMinor": {
+          "id": "onBehalfOfMinor",
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        },
+        "asAnAgent": {
+          "id": "asAnAgent",
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        },
+        "completersContactDetails": {
+          "id": "completersContactDetails",
+          "type": "string"
+        },
+        "completersEmailAddress": {
+          "id": "completersEmailAddress",
+          "type": "string",
+          "pattern": "^[^@]+@[^@]+\\.[^@]+$",
+          "maxLength":127
+        }
+      },
+      "dependencies": {
+        "onBehalfOfMinor": {
+          "oneOf": [
+            {
+              "properties": {
+                "onBehalfOfMinor": {"enum": ["Yes"]},
+                "asAnAgent": {"enum": ["Yes"]}
+              },
+              "required": [
+                "completersContactDetails",
+                "completersEmailAddress"
+              ]
+            },
+            {
+              "properties": {
+                "onBehalfOfMinor": {"enum": ["Yes"]},
+                "asAnAgent": {"enum": ["No"]}
+              },
+              "required": [
+                "completersContactDetails",
+                "completersEmailAddress"
+              ]
+            },
+            {
+              "properties": {
+                "onBehalfOfMinor": {"enum": ["No"]},
+                "asAnAgent": {"enum": ["Yes"]}
+              },
+              "required": [
+                "completersContactDetails",
+                "completersEmailAddress"
+              ]
+            },
+            {
+              "properties": {
+                "onBehalfOfMinor": {"enum": ["No"]},
+                "asAnAgent": {"enum": ["No"]}
+              },
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "onBehalfOfMinor",
+        "asAnAgent"
+      ]
+    },
+    "passportFileId": {
+      "id": "passportFileId",
+      "type": "string",
+      "pattern": "[0-9a-f]{24}"
+    },
+    "referenceId": {
+      "id": "referenceId",
+      "type": "string",
+      "pattern": "[A-Z\\d]{8}"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "objectId",
+    "passport",
+    "payment",
+    "contactDetails",
+    "journey",
+    "miscellaneous",
+    "passportFileId",
+    "referenceId"
+  ]
 }
