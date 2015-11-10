@@ -636,8 +636,7 @@
               "properties": {
                 "onBehalfOfMinor": {"enum": ["No"]},
                 "asAnAgent": {"enum": ["No"]}
-              },
-              "additionalProperties": false
+              }
             }
           ]
         }
