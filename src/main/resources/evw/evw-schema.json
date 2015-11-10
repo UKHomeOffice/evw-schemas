@@ -484,7 +484,9 @@
               "not": {
                 "required": [
                   "arrivalTravel",
-                  "departureForUKDate"
+                  "departureForUKDate",
+                  "inwardDepartureCountry",
+                  "inwardDeparturePort"
                 ]
               }
             },
@@ -500,7 +502,9 @@
               },
               "required": [
                 "arrivalTravel",
-                "departureForUKDate"
+                "departureForUKDate",
+                "inwardDepartureCountry",
+                "inwardDeparturePort"
               ]
             }
           ]
