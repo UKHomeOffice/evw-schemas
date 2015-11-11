@@ -646,8 +646,8 @@
       "type": "string",
       "pattern": "[0-9a-f]{24}"
     },
-    "referenceId": {
-      "id": "referenceId",
+    "applicationReference": {
+      "id": "applicationReference",
       "type": "string",
       "pattern": "[A-Z\\d]{8}"
     }
@@ -661,6 +661,6 @@
     "journey",
     "miscellaneous",
     "passportFileId",
-    "referenceId"
+    "applicationReference"
   ]
 }

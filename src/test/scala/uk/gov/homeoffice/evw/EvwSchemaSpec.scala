@@ -17,12 +17,12 @@ class EvwSchemaSpec extends Specification with Json with JsonFormats {
   "Invalid EVW Entry JSON" should {
     "be missing all top level requirements" in {
       schema.validate("" -> "") must beLike[JValue Or JsonError] {
-        case Bad(JsonError(_, Some(error), _)) => error must contain("""missing: ["contactDetails","journey","miscellaneous","objectId","passport","passportFileId","payment","referenceId"]""")
+        case Bad(JsonError(_, Some(error), _)) => error must contain("""missing: ["applicationReference","contactDetails","journey","miscellaneous","objectId","passport","passportFileId","payment"]""")
       }
     }
 
     "be missing top level requirement 'reference ID'" in {
-      schema.validate("referenceId" -> "A23EJDQA") must beLike[JValue Or JsonError] {
+      schema.validate("applicationReference" -> "A23EJDQA") must beLike[JValue Or JsonError] {
         case Bad(JsonError(_, Some(error), _)) => error must contain("""missing: ["contactDetails","journey","miscellaneous","objectId","passport","passportFileId","payment"]""")
       }
     }
@@ -142,15 +142,15 @@ class EvwSchemaSpec extends Specification with Json with JsonFormats {
 
     "have invalid 'reference ID'" in {
       schema validate {
-        replace(json \ "referenceId" -> "1234567")
+        replace(json \ "applicationReference" -> "1234567")
       } must beLike[JValue Or JsonError] {
-        case Bad(JsonError(_, Some(error), _)) => error must contain(""""pointer":"/referenceId"""")
+        case Bad(JsonError(_, Some(error), _)) => error must contain(""""pointer":"/applicationReference"""")
       }
 
       schema validate {
-        replace(json \ "referenceId" -> "1234567x")
+        replace(json \ "applicationReference" -> "1234567x")
       } must beLike[JValue Or JsonError] {
-        case Bad(JsonError(_, Some(error), _)) => error must contain(""""pointer":"/referenceId"""")
+        case Bad(JsonError(_, Some(error), _)) => error must contain(""""pointer":"/applicationReference"""")
       }
     }
 
