@@ -68,6 +68,11 @@
           "type": "string",
           "maxLength": 100
         },
+        "countryOfBirthCode": {
+          "id": "countryOfBirthCode",
+          "type": "string",
+          "maxLength": 3
+        },
         "placeOfIssue": {
           "id": "placeOfIssue",
           "type": "string",
@@ -230,6 +235,11 @@
               "maxLength": 100
             },
             {
+              "id": "countryCode",
+              "type": "string",
+              "maxLength": 3
+            },
+            {
               "id": "postcode",
               "type": "string",
               "maxLength": 35
@@ -240,6 +250,11 @@
           "id": "countryAppliedFrom",
           "type": "string",
           "maxLength": 100
+        },
+        "countryAppliedFromCode": {
+          "id": "countryAppliedFromCode",
+          "type": "string",
+          "maxLength": 3
         },
         "phoneNumber": {
           "id": "phoneNumber",
@@ -401,6 +416,11 @@
           "type": "string",
           "maxLength":100
 
+        },
+        "inwardDepartureCountryCode": {
+          "id": "inwardDepartureCountryCode",
+          "type": "string",
+          "maxLength":3
         },
         "inwardDeparturePort": {
           "id": "inwardDeparturePort",
