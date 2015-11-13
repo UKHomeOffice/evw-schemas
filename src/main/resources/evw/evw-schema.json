@@ -66,7 +66,7 @@
         "countryOfBirth": {
           "id": "countryOfBirth",
           "type": "string",
-          "maxLength": 100
+          "maxLength": 3
         },
         "placeOfIssue": {
           "id": "placeOfIssue",
@@ -227,7 +227,7 @@
             {
               "id": "country",
               "type": "string",
-              "maxLength": 100
+              "maxLength": 3
             },
             {
               "id": "postcode",
@@ -239,7 +239,7 @@
         "countryAppliedFrom": {
           "id": "countryAppliedFrom",
           "type": "string",
-          "maxLength": 100
+          "maxLength": 3
         },
         "phoneNumber": {
           "id": "phoneNumber",
@@ -399,7 +399,7 @@
         "inwardDepartureCountry": {
           "id": "inwardDepartureCountry",
           "type": "string",
-          "maxLength": 100
+          "maxLength": 3
         },
         "inwardDeparturePort": {
           "id": "inwardDeparturePort",
