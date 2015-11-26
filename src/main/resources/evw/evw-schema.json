@@ -242,7 +242,7 @@
           "maxLength": 95
         },
         "countryAppliedFromCode": {
-          "id": "countryAppliedFrom",
+          "id": "countryAppliedFromCode",
           "type": "string",
           "maxLength": 3
         },
@@ -344,7 +344,7 @@
           "maxLength":25
         },
         "portOfArrivalCode": {
-          "id": "portOfArrival",
+          "id": "portOfArrivalCode",
           "type": "string",
           "maxLength":3
         },
@@ -417,7 +417,7 @@
           "maxLength":95
         },
         "inwardDeparturePortCode": {
-          "id": "inwardDeparturePort",
+          "id": "inwardDeparturePortCode",
           "type": "string",
           "maxLength":3
         },
@@ -431,7 +431,7 @@
           "maxLength":95
         },
         "portOfDepartureCode": {
-          "id": "portOfDeparture",
+          "id": "portOfDepartureCode",
           "type": "string",
           "maxLength":3
         },
