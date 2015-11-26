@@ -239,6 +239,11 @@
         "countryAppliedFrom": {
           "id": "countryAppliedFrom",
           "type": "string",
+          "maxLength": 95
+        },
+        "countryAppliedFromCode": {
+          "id": "countryAppliedFrom",
+          "type": "string",
           "maxLength": 3
         },
         "phoneNumber": {
@@ -335,8 +340,12 @@
         "portOfArrival": {
           "id": "portOfArrival",
           "type": "string",
-          "maxLength":30
-
+          "maxLength":25
+        },
+        "portOfArrivalCode": {
+          "id": "portOfArrival",
+          "type": "string",
+          "maxLength":3
         },
         "arrivalTravel": {
           "id": "arrivalTravel",
@@ -404,7 +413,12 @@
         "inwardDeparturePort": {
           "id": "inwardDeparturePort",
           "type": "string",
-          "maxLength":100
+          "maxLength":95
+        },
+        "inwardDeparturePortCode": {
+          "id": "inwardDeparturePort",
+          "type": "string",
+          "maxLength":3
         },
         "ukDuration": {
           "id": "ukDuration",
@@ -413,8 +427,12 @@
         "portOfDeparture": {
           "id": "portOfDeparture",
           "type": "string",
-          "maxLength":100
-
+          "maxLength":95
+        },
+        "portOfDepartureCode": {
+          "id": "portOfDeparture",
+          "type": "string",
+          "maxLength":3
         },
         "departureTravel": {
           "id": "departureTravel",
