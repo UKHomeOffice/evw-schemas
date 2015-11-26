@@ -285,6 +285,7 @@
         "emailAddress",
         "homeAddress",
         "countryAppliedFrom",
+        "countryAppliedFromCode",
         "phoneNumber",
         "mobilePhoneNumber"
       ],
@@ -498,7 +499,8 @@
                   "arrivalTravel",
                   "departureForUKDate",
                   "inwardDepartureCountry",
-                  "inwardDeparturePort"
+                  "inwardDeparturePort",
+                  "inwardDeparturePortCode"
                 ]
               }
             },
@@ -567,6 +569,7 @@
                 "required": [
                   "departureTravel",
                   "portOfDeparture",
+                  "portOfDepartureCode",
                   "departureDate"
                 ]
               }
