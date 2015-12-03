@@ -500,7 +500,7 @@
                   "departureForUKDate",
                   "inwardDepartureCountry",
                   "inwardDeparturePort",
-                  "inwardDeparturePortCode"
+                  "portOfArrival"
                 ]
               }
             },
@@ -518,7 +518,8 @@
                 "arrivalTravel",
                 "departureForUKDate",
                 "inwardDepartureCountry",
-                "inwardDeparturePort"
+                "inwardDeparturePort",
+                "portOfArrival"
               ]
             }
           ]

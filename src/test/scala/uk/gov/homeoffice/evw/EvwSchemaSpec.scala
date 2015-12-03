@@ -12,7 +12,8 @@ import scala.util.Success
 
 class EvwSchemaSpec extends Specification with Json with JsonFormats {
   val schema = JsonSchema(getClass.getResource("/evw/evw-schema.json"))
-  implicit val Success(json) = jsonFromClasspath("/evw/evw.json")
+  implicit val Success(json) = jsonFromClasspath("/evw/primary-path-data.json")
+  val Success(alternateJson) = jsonFromClasspath("/evw/alternate-path-data.json")
 
   "Invalid EVW Entry JSON" should {
     "be missing all top level requirements" in {
@@ -35,14 +36,6 @@ class EvwSchemaSpec extends Specification with Json with JsonFormats {
         case Bad(JsonError(_, Some(error), _)) => error must contain("""keyword: "pattern"""")
       }
     }
-
-//    "be missing sub level requirement 'name'" in {
-//      schema.validate {
-//        json remove { _ == json \ "passport" \ "name" }
-//      } must beLike[JValue Or JsonError] {
-//        case Bad(JsonError(_, Some(error), _)) => error must contain("""missing: [name"]""")
-//      }
-//    }
 
     "have 'issue date' in the future" in {
       schema validate {
@@ -172,8 +165,12 @@ class EvwSchemaSpec extends Specification with Json with JsonFormats {
   }
 
   "Valid EVW JSON" should {
-    "have all data" in {
+    "against primary path data" in {
       schema.validate(json) mustEqual Good(json)
+    }
+
+    "against alternate path data" in {
+      schema.validate(alternateJson) mustEqual Good(alternateJson)
     }
 
     "have all required data" in {
