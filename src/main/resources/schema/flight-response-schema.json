@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://www.gov.uk/schema/flight-response",
+  "type": "object",
+  "properties": {
+    "flights" : {
+      "type": "array",
+      "items": {
+        "arrivalAirport": {
+          "type": "string",
+          "maxLength": 3
+        },
+        "arrivalTime": {
+          "type": "string",
+          "maxLength": 4
+        },
+        "inwardDepartureCountry": {
+          "type": "string",
+          "maxLength": 2
+        }
+      }
+    }
+  }
+}

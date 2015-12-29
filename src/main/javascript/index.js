@@ -1,7 +1,7 @@
 var evw = {
     mainForm: {
-        schema: require('../resources/evw/evw-schema.json'),
-        testData: require('../resources/evw/primary-path-data.json')
+        schema: require('../resources/schema/evw-schema.json'),
+        testData: require('../resources/data/primary-path-data.json')
     }
 };
 
