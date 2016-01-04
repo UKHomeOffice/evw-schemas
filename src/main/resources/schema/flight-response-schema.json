@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://jsonschema.net",
+  "type": "object",
+  "properties": {
+    "flight-details": {
+      "id": "http://jsonschema.net/flight-details",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "flightNumber": {
+            "type": "string",
+            "maxLength": 30
+          },
+          "departureCountry": {
+            "type": "string",
+            "maxLength": 2
+          },
+          "departurePort": {
+            "type": "string",
+            "maxLength": 3
+          },
+          "arrivalPort": {
+            "type": "string",
+            "maxLength": 3
+          },
+          "arrivalDate": {
+            "type": "string",
+            "pattern": "^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"
+          },
+          "arrivalTime": {
+            "type": "string",
+            "maxLength": 4
+          }
+        },
+        "required": ["flightNumber", "departureCountry", "departurePort", "arrivalPort", "arrivalDate", "arrivalTime"]
+      }
+    }
+  },
+  "required": [
+    "flight-details"
+  ]
+}

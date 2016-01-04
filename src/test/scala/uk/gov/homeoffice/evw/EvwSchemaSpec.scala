@@ -11,9 +11,9 @@ import uk.gov.homeoffice.json.{Json, JsonError, JsonFormats, JsonSchema}
 import scala.util.Success
 
 class EvwSchemaSpec extends Specification with Json with JsonFormats {
-  val schema = JsonSchema(getClass.getResource("/evw/evw-schema.json"))
-  implicit val Success(json) = jsonFromClasspath("/evw/primary-path-data.json")
-  val Success(alternateJson) = jsonFromClasspath("/evw/alternate-path-data.json")
+  val schema = JsonSchema(getClass.getResource("/schema/evw-schema.json"))
+  implicit val Success(json) = jsonFromClasspath("/data/primary-path-data.json")
+  val Success(alternateJson) = jsonFromClasspath("/data/alternate-path-data.json")
 
   "Invalid EVW Entry JSON" should {
     "be missing all top level requirements" in {
