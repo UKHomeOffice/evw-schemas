@@ -419,7 +419,7 @@
         "inwardDeparturePortCode": {
           "id": "inwardDeparturePortCode",
           "type": "string",
-          "maxLength":3
+          "maxLength":5
         },
         "ukDuration": {
           "id": "ukDuration",
