@@ -658,8 +658,7 @@
       "additionalProperties": false,
       "required": [
         "onBehalfOfMinor",
-        "asAnAgent",
-        "invitationCode"
+        "asAnAgent"
       ]
     },
     "passportFileId": {
