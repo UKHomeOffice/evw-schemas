@@ -9,7 +9,7 @@ object Build extends Build {
       name := moduleName,
       organization := "uk.gov.homeoffice",
       version := "1.0-SNAPSHOT",
-      scalaVersion := "2.11.7",
+      scalaVersion := "2.11.8",
       scalacOptions ++= Seq(
         "-feature",
         "-language:implicitConversions",
@@ -47,10 +47,10 @@ object Build extends Build {
 
     module.settings(
       libraryDependencies ++= Seq(
-        "uk.gov.homeoffice" %% "rtp-io-lib" % "1.4.0-SNAPSHOT" withSources()
+        "uk.gov.homeoffice" %% "rtp-io-lib" % "1.7.0" withSources()
       ),
       libraryDependencies ++= Seq(
-        "uk.gov.homeoffice" %% "rtp-test-lib" % "1.2.0-SNAPSHOT" % Test classifier "tests" withSources(),
-        "uk.gov.homeoffice" %% "rtp-io-lib" % "1.4.0-SNAPSHOT" % Test classifier "tests" withSources()))
+        "uk.gov.homeoffice" %% "rtp-test-lib" % "1.2.1-SNAPSHOT" % Test classifier "tests" withSources(),
+        "uk.gov.homeoffice" %% "rtp-io-lib" % "1.7.0" % Test classifier "tests" withSources()))
   }
 }
