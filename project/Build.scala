@@ -8,7 +8,7 @@ object Build extends Build {
     .settings(
       name := moduleName,
       organization := "uk.gov.homeoffice",
-      version := "1.1.1",
+      version := "1.1.2",
       scalaVersion := "2.11.8",
       scalacOptions ++= Seq(
         "-feature",
@@ -18,7 +18,8 @@ object Build extends Build {
         "-language:reflectiveCalls",
         "-language:postfixOps",
         "-Yrangepos",
-        "-Yrepl-sync"),
+        "-Yrepl-sync"
+      ),
       ivyScala := ivyScala.value map { _.copy(overrideScalaVersion = true) },
       resolvers ++= Seq(
         "Artifactory Snapshot Realm" at "http://artifactory.registered-traveller.homeoffice.gov.uk/artifactory/libs-snapshot-local/",
@@ -47,10 +48,11 @@ object Build extends Build {
 
     module.settings(
       libraryDependencies ++= Seq(
+        "uk.gov.homeoffice" %% "rtp-test-lib" % "1.2.2" withSources(),
         "uk.gov.homeoffice" %% "rtp-io-lib" % "1.7.2" withSources()
       ),
       libraryDependencies ++= Seq(
-        "uk.gov.homeoffice" %% "rtp-test-lib" % "1.2.1" % Test classifier "tests" withSources(),
+        "uk.gov.homeoffice" %% "rtp-test-lib" % "1.2.2" % Test classifier "tests" withSources(),
         "uk.gov.homeoffice" %% "rtp-io-lib" % "1.7.2" % Test classifier "tests" withSources()))
   }
 }
