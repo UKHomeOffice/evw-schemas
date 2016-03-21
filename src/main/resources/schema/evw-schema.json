@@ -298,12 +298,8 @@
                   "enum": ["No"]
                 }
               },
-              "not": {
-                "required": [
-                  "companyName",
-                  "occupation"
-                ]
-              }
+              "not": { "required": ["companyName"] },
+              "not": { "required": ["occupation"] }
             },
             {
               "properties": {
@@ -494,15 +490,11 @@
                   "enum": ["Land"]
                 }
               },
-              "not": {
-                "required": [
-                  "arrivalTravel",
-                  "departureForUKDate",
-                  "inwardDepartureCountry",
-                  "inwardDeparturePort",
-                  "portOfArrival"
-                ]
-              }
+              "not": { "required": ["arrivalTravel"] },
+              "not": { "required": ["departureForUKDate"] },
+              "not": { "required": ["inwardDepartureCountry"] },
+              "not": { "required": ["inwardDeparturePort"] },
+              "not": { "required": ["portOfArrival"] }
             },
             {
               "properties": {
@@ -566,14 +558,10 @@
                 }
               },
               "required": ["ukDuration"],
-              "not": {
-                "required": [
-                  "departureTravel",
-                  "portOfDeparture",
-                  "portOfDepartureCode",
-                  "departureDate"
-                ]
-              }
+              "not": { "required": ["departureTravel"] },
+              "not": { "required": ["portOfDeparture"] },
+              "not": { "required": ["portOfDepartureCode"] },
+              "not": { "required": ["departureDate"] }
             }
           ]
         }
