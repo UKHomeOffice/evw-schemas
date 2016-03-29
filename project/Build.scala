@@ -8,7 +8,7 @@ object Build extends Build {
     .settings(
       name := moduleName,
       organization := "uk.gov.homeoffice",
-      version := "1.1.2",
+      version := "1.1.3",
       scalaVersion := "2.11.8",
       scalacOptions ++= Seq(
         "-feature",
@@ -29,30 +29,12 @@ object Build extends Build {
         "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases")
     )
 
-  val rtpIoLib = ProjectRef(file("../rtp-io-lib"), "rtp-io-lib")
-  val rtpTestLib = ProjectRef(file("../rtp-test-lib"), "rtp-test-lib")
-
-  def existsLocallyAndNotOnJenkins(filePath: String) = file(filePath).exists && !file(filePath + "/nextBuildNumber").exists()
-
-  lazy val root = if (Seq(rtpIoLib, rtpTestLib).forall(p => existsLocallyAndNotOnJenkins(p.build.getPath))) {
-    println("=================================")
-    println("Build locally Evw schemas")
-    println("=================================")
-
-    module.dependsOn(rtpIoLib % "test->test;compile->compile")
-          .dependsOn(rtpTestLib % "test->test;compile->compile")
-  } else {
-    println("====================================")
-    println("Build on Jenkins Evw schemas")
-    println("====================================")
-
-    module.settings(
-      libraryDependencies ++= Seq(
-        "uk.gov.homeoffice" %% "rtp-test-lib" % "1.2.2" withSources(),
-        "uk.gov.homeoffice" %% "rtp-io-lib" % "1.7.2" withSources()
-      ),
-      libraryDependencies ++= Seq(
-        "uk.gov.homeoffice" %% "rtp-test-lib" % "1.2.2" % Test classifier "tests" withSources(),
-        "uk.gov.homeoffice" %% "rtp-io-lib" % "1.7.2" % Test classifier "tests" withSources()))
-  }
+  module.settings(
+    libraryDependencies ++= Seq(
+      "uk.gov.homeoffice" %% "rtp-test-lib" % "1.2.2" withSources(),
+      "uk.gov.homeoffice" %% "rtp-io-lib" % "1.7.2" withSources()
+    ),
+    libraryDependencies ++= Seq(
+      "uk.gov.homeoffice" %% "rtp-test-lib" % "1.2.2" % Test classifier "tests" withSources(),
+      "uk.gov.homeoffice" %% "rtp-io-lib" % "1.7.2" % Test classifier "tests" withSources()))
 }
