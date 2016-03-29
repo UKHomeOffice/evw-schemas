@@ -26,15 +26,12 @@ object Build extends Build {
         "Artifactory Release Realm" at "http://artifactory.registered-traveller.homeoffice.gov.uk/artifactory/libs-release-local/",
         "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/",
         "Sonatype Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/",
-        "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases")
-    )
-
-  module.settings(
-    libraryDependencies ++= Seq(
+        "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"),
+      libraryDependencies ++= Seq(
       "uk.gov.homeoffice" %% "rtp-test-lib" % "1.2.2" withSources(),
-      "uk.gov.homeoffice" %% "rtp-io-lib" % "1.7.2" withSources()
-    ),
-    libraryDependencies ++= Seq(
-      "uk.gov.homeoffice" %% "rtp-test-lib" % "1.2.2" % Test classifier "tests" withSources(),
-      "uk.gov.homeoffice" %% "rtp-io-lib" % "1.7.2" % Test classifier "tests" withSources()))
+      "uk.gov.homeoffice" %% "rtp-io-lib" % "1.7.2" withSources()),
+      libraryDependencies ++= Seq(
+        "uk.gov.homeoffice" %% "rtp-test-lib" % "1.2.2" % Test classifier "tests" withSources(),
+        "uk.gov.homeoffice" %% "rtp-io-lib" % "1.7.2" % Test classifier "tests" withSources())
+    )
 }
