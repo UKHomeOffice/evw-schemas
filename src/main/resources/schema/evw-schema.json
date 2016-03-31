@@ -326,7 +326,8 @@
             "Plane",
             "Train",
             "Boat",
-            "Land"
+            "Land",
+            "Private Plane"
           ]
         },
         "departureForUKDate": {
@@ -502,7 +503,8 @@
                   "enum": [
                     "Boat",
                     "Plane",
-                    "Train"
+                    "Train",
+                    "Private Plane"
                   ]
                 }
               },
