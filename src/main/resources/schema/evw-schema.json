@@ -42,7 +42,8 @@
           "id": "nationality",
           "type": "string",
           "enum": [
-            "KWT"
+            "KWT",
+            "OMN"
           ]
         },
         "passportNumber": {
