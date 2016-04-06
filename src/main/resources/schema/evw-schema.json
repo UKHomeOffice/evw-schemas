@@ -43,7 +43,9 @@
           "type": "string",
           "enum": [
             "KWT",
-            "OMN"
+            "OMN",
+            "QAT",
+            "UAE"
           ]
         },
         "passportNumber": {
