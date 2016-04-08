@@ -13,7 +13,23 @@
       "properties": {
         "name": {
           "id": "name",
-          "type": "string"
+          "type": "string",
+          "maxLength": 50
+        },
+        "surname": {
+          "id": "surname",
+          "type": "string",
+          "maxLength": 50
+        },
+        "familyName": {
+          "id": "familyName",
+          "type": "string",
+          "maxLength": 50
+        },
+        "givenNames": {
+          "id": "givenNames",
+          "type": "string",
+          "maxLength": 50
         },
         "dateOfBirth": {
           "id": "dateOfBirth",
@@ -105,7 +121,6 @@
       },
       "additionalProperties": false,
       "required": [
-        "name",
         "dateOfBirth",
         "expiryDate",
         "gender",
