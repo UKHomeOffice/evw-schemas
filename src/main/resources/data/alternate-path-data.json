@@ -58,7 +58,8 @@
   "miscellaneous" : {
     "invitationCode" : "SMOKETEST",
     "onBehalfOfMinor" : "No",
-    "asAnAgent" : "No"
+    "asAnAgent" : "No",
+    "flightDetailsCheck" : "No"
   },
   "passportFileId": "558d7997ac7ed77d28c6ea93",
   "applicationReference": "QVQZE4C2"

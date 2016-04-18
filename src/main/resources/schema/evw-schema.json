@@ -619,6 +619,14 @@
           "type": "string",
           "pattern": "^[^@]+@[^@]+\\.[^@]+$",
           "maxLength":127
+        },
+        "flightDetailsCheck": {
+          "id": "flightDetailsCheck",
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
         }
       },
       "dependencies": {
