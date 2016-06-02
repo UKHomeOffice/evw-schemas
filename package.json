@@ -4,8 +4,11 @@
   "main": "src/main/javascript/index.js",
   "version": "0.1.0",
   "devDependencies": {
-    "chai": "^3.2.0",
-    "mocha": "^2.2.5"
+    "chai": "^3.4.1",
+    "lodash": "^2.4.2",
+    "mocha": "^2.2.5",
+    "moment": "^2.10.6",
+    "moment-timezone": "^0.5.3"
   },
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha src/test/javascript/ --recursive"
