@@ -68,7 +68,7 @@ function transformData(result) {
             arrivalDate: getDate(result, 'arrivalDate' + getFieldDepartureMode(result)),
             arrivalTime: formatTime(result['arrivalTime' + getFieldDepartureMode(result) + 'Hour'], result['arrivalTime' + getFieldDepartureMode(result) + 'Minutes']),
             departureForUKDate: getDepartureForUKDate(result),
-            portOfArrival: result['portOfArrival' + getFieldDepartureMode(result)],
+            portOfArrival: result.departureMode === 'Land' ? result.arrivalPointLand : result['portOfArrival' + getFieldDepartureMode(result)],
             portOfArrivalCode: result['portOfArrival' + getFieldDepartureMode(result) + 'Code'],
             ukDuration: existsIfEqual(result.knowDepartureDetails, 'No', result.ukDuration),
             ukAddress: [result.ukAddress1 || '',
@@ -88,7 +88,8 @@ function transformData(result) {
             departureTravel: existsIfEqual(result.knowDepartureDetails, 'Yes', result.departureFlightNumber),
             reasonForTravel: result.reasonForVisit === 'Other' ? result.otherReasonForVisit : result.reasonForVisit,
             travelWithOthers: result.travelWithOthers,
-            otherTravellers: existsIfEqual(result.travelWithOthers, 'Yes', result.otherTravellers)
+            otherTravellers: existsIfEqual(result.travelWithOthers, 'Yes', result.otherTravellers),
+            travelMethodLand: result.travelMethodLand === 'Other' ? result.travelMethodOtherLand : result.travelMethodLand
         }),
         miscellaneous: parsing.withoutEmpty({
             invitationCode: result.invitation,

@@ -489,6 +489,11 @@
             "Yes",
             "No"
           ]
+        },
+        "travelMethodLand": {
+          "id": "travelMethodLand",
+          "type": "string",
+          "maxLength":50
         }
       },
       "additionalProperties": false,
@@ -512,8 +517,7 @@
               "not": { "required": ["arrivalTravel"] },
               "not": { "required": ["departureForUKDate"] },
               "not": { "required": ["inwardDepartureCountry"] },
-              "not": { "required": ["inwardDeparturePort"] },
-              "not": { "required": ["portOfArrival"] }
+              "not": { "required": ["inwardDeparturePort"] }
             },
             {
               "properties": {
