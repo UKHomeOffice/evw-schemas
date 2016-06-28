@@ -153,7 +153,7 @@ class EvwSchemaSpec extends Specification with Json with JsonFormats {
       }
       println(requiredJson)
       schema validate(requiredJson) must beLike[JValue Or JsonError] {
-        case Bad(JsonError(_, Some(error), _)) => error must contain("""required: ["feeInPence","orderCode","paymentDate"]""")
+        case Bad(JsonError(_, Some(error), _)) => error must contain("""required: ["feeInPence","orderCode","paid","paymentDate"]""")
       }
     }
 

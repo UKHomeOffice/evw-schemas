@@ -32,6 +32,7 @@ describe('mainFormPostData', function () {
             objectId: expectedData.objectId,
             orderCode: expectedData.payment.orderCode,
             fee: expectedData.payment.feeInPence,
+            paid: expectedData.payment.paid,
             paymentDate: new Date(expectedData.payment.paymentDate),
             applicationReference: expectedData.applicationReference,
             nationality: expectedData.passport.nationality,
