@@ -41,7 +41,8 @@ function transformData(result) {
         payment: parsing.withoutEmpty({
             orderCode: result.orderCode,
             feeInPence: parseInt(result.fee, 10),
-            paymentDate: moment(result.paymentDate).format('YYYY-MM-DD HH:mm:ss')
+            paymentDate: moment(result.paymentDate).format('YYYY-MM-DD HH:mm:ss'),
+            paid: result.paid
         }),
         contactDetails: parsing.withoutEmpty({
             emailAddress: result.emailAddress,

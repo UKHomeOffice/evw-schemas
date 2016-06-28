@@ -20,7 +20,8 @@
   "payment": {
     "orderCode": "EVW000000001",
     "feeInPence": 2000,
-    "paymentDate": "2015-06-26 17:11:12"
+    "paymentDate": "2015-06-26 17:11:12",
+    "paid":true
   },
   "contactDetails": {
     "emailAddress": "bruce.wayne@gmail.com",
