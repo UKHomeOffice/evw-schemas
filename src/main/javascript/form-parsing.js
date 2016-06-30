@@ -28,7 +28,24 @@ var withoutEmpty = function withoutEmpty (object) {
     return _empty(object);
 };
 
+var emptyKeepFalsey = (object) => {
+    return _.omit(object, i => i === null || i.length === 0);
+};
+
+// Recursively remove items with string length 0 from an object
+// Ignores arrays.
+var emptyWithFalse = function withoutEmpty (object) {
+    _.keys(object).map(function (key) {
+        if(!_.isArray(object[key]) && _.isObject(object[key])) {
+            object[key] = emptyWithFalse(object[key]);
+        }
+    });
+
+    return emptyKeepFalsey(object);
+};
 
 module.exports = {
     withoutEmpty: withoutEmpty,
+    emptyKeepFalsey: emptyKeepFalsey,
+    emptyWithFalse: emptyWithFalse
 };
