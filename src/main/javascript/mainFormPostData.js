@@ -1,6 +1,5 @@
 'use strict';
 var moment = require('moment');
-var _ = require('lodash');
 var parsing = require('./form-parsing');
 
 function transformData(result) {
@@ -38,7 +37,7 @@ function transformData(result) {
             heldPreviousNationalities: result.heldPreviousNationalities,
             previousNationalities: existsIfEqual(result.heldPreviousNationalities, 'Yes', result.previousNationalities)
         }),
-        payment: parsing.withoutEmpty({
+        payment: parsing.emptyWithFalse({
             orderCode: result.orderCode,
             feeInPence: parseInt(result.fee, 10),
             paymentDate: moment(result.paymentDate).format('YYYY-MM-DD HH:mm:ss'),
