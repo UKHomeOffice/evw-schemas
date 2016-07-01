@@ -30,3 +30,27 @@ describe('emptyKeepFalsey', function () {
         });
     });
 });
+
+describe('emptyWithFalse', function () {
+    let payment = {
+        foo: 'bar',
+        bar: null,
+        baz: undefined,
+        empty: '',
+        payment: {
+            foo: '',
+            paid: false,
+            pending: true
+        }
+    };
+
+    it('recursively preserves falsey, removes empty/null values', function () {
+        parsing.emptyWithFalse(payment).should.deep.equal({
+            foo: 'bar',
+            payment: {
+                paid: false,
+                pending: true
+            }
+        });
+    });
+});
