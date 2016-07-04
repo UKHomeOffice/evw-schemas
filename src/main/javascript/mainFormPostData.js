@@ -15,7 +15,7 @@ function transformData(result) {
         }
     }
 
-    return parsing.withoutEmpty({
+    return {
         objectId: result.objectId,
         passport: parsing.withoutEmpty({
             name: result.name,
@@ -101,7 +101,7 @@ function transformData(result) {
         }),
         passportFileId: result.passportFileId,
         applicationReference: result.applicationReference
-    });
+    };
 }
 
 function existsIfEqual(value1, value2, fieldValue) {
