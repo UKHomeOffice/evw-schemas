@@ -122,6 +122,14 @@ describe('mainFormPostData', function () {
         assert.deepEqual(actualData, expectedData);
     });
 
+    describe('payment object', function () {
+        var fix = require('../fixtures/pending-post');
+        it('should include falsey values', function () {
+            mainFormPostData.transformData(fix).payment
+            .should.contain.any.keys({'paid':false});
+        });
+    });
+
     it('should not return the key if the values are null', function () {
 
         var record = {
