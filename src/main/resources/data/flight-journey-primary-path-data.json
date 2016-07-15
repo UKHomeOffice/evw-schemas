@@ -11,6 +11,7 @@
     "portOfArrivalCode" : "LGW",
     "inwardDepartureCountry": "FRA",
     "inwardDeparturePort": " Paris",
-    "inwardDeparturePortCode": "PAR"
+    "inwardDeparturePortCode": "PAR",
+    "dateCreated": "2016-07-13 00:00:00"
     }
 }
