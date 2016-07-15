@@ -1,0 +1,16 @@
+{
+  "flight-journey-update": {
+    "membershipNumber" : "EVW123456",
+    "token" : "38193537b63e72a0cb147a8e0c027f8401995494a415992f384d61e5acf2f662",
+    "arrivalTravel" : "BA002",
+    "arrivalDate" : "2016-11-26",
+    "arrivalTime" : "08:45",
+    "departureForUKDate" : "2016-11-26",
+    "departureForUKTime" : "14:11",
+    "portOfArrival" : "London Gatwick",
+    "portOfArrivalCode" : "LGW",
+    "inwardDepartureCountry": "FRA",
+    "inwardDeparturePort": " Paris",
+    "inwardDeparturePortCode": "PAR"
+    }
+}
