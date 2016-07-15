@@ -1,0 +1,98 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "/",
+  "type": "object",
+  "properties": {
+    "flight-journey-update": {
+      "type": "object",
+      "properties": {
+        "membershipNumber": {
+          "id": "membershipNumber",
+          "type": "string",
+          "maxLength":25
+        },
+        "token": {
+          "id": "token",
+          "type": "string",
+          "maxLength":64
+        },
+        "arrivalTravel": {
+          "id": "arrivalTravel",
+          "type": "string",
+          "maxLength":30
+        },
+        "arrivalDate": {
+          "id": "arrivalDate",
+          "type": "string",
+          "pattern": "^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"
+        },
+        "arrivalTime": {
+          "id": "arrivalTime",
+          "type": "string",
+          "pattern":"^([0-9]{2}):([0-9]{2})$"
+        },
+        "departureForUKDate": {
+          "id": "departureForUKDate",
+          "type": "string",
+          "pattern":"^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"
+        },
+        "departureForUKTime": {
+          "id": "arrivalTime",
+          "type": "string",
+          "pattern":"^([0-9]{2}):([0-9]{2})$"
+        },
+        "portOfArrival": {
+          "id": "portOfArrival",
+          "type": "string",
+          "maxLength":25
+        },
+        "portOfArrivalCode": {
+          "id": "portOfArrivalCode",
+          "type": "string",
+          "maxLength":3
+        },
+        "inwardDepartureCountry": {
+          "id": "inwardDepartureCountry",
+          "type": "string",
+          "maxLength": 3
+        },
+        "inwardDeparturePort": {
+          "id": "inwardDeparturePort",
+          "type": "string",
+          "maxLength":95
+        },
+        "inwardDeparturePortCode": {
+          "id": "inwardDeparturePortCode",
+          "type": "string",
+          "maxLength":5
+        },
+        "dateCreated": {
+          "id": "dateCreated",
+          "type": "string",
+          "pattern": "^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([0-9]{2}):([0-9]{2}):([0-9]{2})$"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "membershipNumber",
+        "token",
+        "arrivalTravel",
+        "arrivalDate",
+        "arrivalTime",
+        "departureForUKDate",
+        "departureForUKTime",
+        "portOfArrival",
+        "portOfArrivalCode",
+        "inwardDepartureCountry",
+        "inwardDeparturePort",
+        "inwardDeparturePortCode",
+        "dateCreated"
+      ],
+      "dependencies": {}
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "flight-journey-update"
+  ]
+}
