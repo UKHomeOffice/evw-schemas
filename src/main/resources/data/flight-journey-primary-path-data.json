@@ -1,5 +1,4 @@
 {
-  "flight-journey-update": {
     "membershipNumber" : "EVW123456",
     "token" : "38193537b63e72a0cb147a8e0c027f8401995494a415992f384d61e5acf2f662",
     "arrivalTravel" : "BA002",
@@ -13,5 +12,4 @@
     "inwardDeparturePort": " Paris",
     "inwardDeparturePortCode": "PAR",
     "dateCreated": "2016-07-13 00:00:00"
-    }
 }

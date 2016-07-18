@@ -16,15 +16,9 @@ class EvwFlightJourneyUpdateSchemaSpec extends Specification with Json with Json
 
   "Invalid EVW Flight Journey Update Entry JSON" should {
 
-    "be missing all top level requirements" in {
-      schema.validate("" -> "") must beLike[JValue Or JsonError] {
-        case Bad(JsonError(_, Some(error), _)) => error must contain("""missing: ["flight-journey-update"""")
-      }
-    }
-
     "have invalid 'membership number'" in {
       schema validate {
-        replace(json \ "flight-journey-update" \ "membershipNumber" -> "Xasdhjlskajdsaljalsdkjlkajklsdjlkasjdlkajalksjdlkajdkldjalkadj")
+        replace(json \ "membershipNumber" -> "Xasdhjlskajdsaljalsdkjlkajklsdjlkasjdlkajalksjdlkajdkldjalkadj")
       } must beLike[JValue Or JsonError] {
         case Bad(JsonError(_, Some(error), _)) => error must contain("""is too long""")
       }
@@ -32,17 +26,17 @@ class EvwFlightJourneyUpdateSchemaSpec extends Specification with Json with Json
 
     "have 'arrival date' with invalid date" in {
       schema validate {
-        replace(json \ "flight-journey-update" \ "arrivalDate" -> "2100-99-99")
+        replace(json \  "arrivalDate" -> "2100-99-99")
       } must beLike[JValue Or JsonError] {
-        case Bad(JsonError(_, Some(error), _)) => error must contain("""pointer":"/properties/flight-journey-update/properties/departureForUKDate"""")
+        case Bad(JsonError(_, Some(error), _)) => error must contain("""pointer":"/properties/departureForUKDate"""")
       }
     }
 
     "have invalid 'port Of Arrival Code'" in {
       schema validate {
-        replace(json \ "flight-journey-update" \ "portOfArrivalCode" -> "FRANCE")
+        replace(json \  "portOfArrivalCode" -> "FRANCE")
       } must beLike[JValue Or JsonError] {
-        case Bad(JsonError(_, Some(error), _)) => error must contain(""""pointer":"/properties/flight-journey-update/properties/portOfArrivalCode"""")
+        case Bad(JsonError(_, Some(error), _)) => error must contain(""""pointer":"/properties/portOfArrivalCode"""")
       }
     }
 
