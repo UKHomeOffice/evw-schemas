@@ -89,15 +89,15 @@ function transformData(result) {
             reasonForTravel: result.reasonForVisit === 'Other' ? result.otherReasonForVisit : result.reasonForVisit,
             travelWithOthers: result.travelWithOthers,
             otherTravellers: existsIfEqual(result.travelWithOthers, 'Yes', result.otherTravellers),
-            travelMethodLand: result.travelMethodLand === 'Other' ? result.travelMethodOtherLand : result.travelMethodLand
+            travelMethodLand: result.travelMethodLand === 'Other' ? result.travelMethodOtherLand : result.travelMethodLand,
+            flightDetailsCheck: isFlightDetailsCheckValid(result, result.flightDetailsCheck)
         }),
         miscellaneous: parsing.withoutEmpty({
             invitationCode: result.invitation,
             onBehalfOfMinor: result.onBehalfOfMinor,
             asAnAgent: result.asAnAgent,
             completersContactDetails: result.completersContactDetails,
-            completersEmailAddress: result.completersEmailAddress,
-            flightDetailsCheck: isFlightDetailsCheckValid(result, result.flightDetailsCheck)
+            completersEmailAddress: result.completersEmailAddress
         }),
         passportFileId: result.passportFileId,
         applicationReference: result.applicationReference

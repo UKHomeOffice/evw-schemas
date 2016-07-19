@@ -11,5 +11,6 @@
     "inwardDepartureCountry": "FRA",
     "inwardDeparturePort": " Paris",
     "inwardDeparturePortCode": "PAR",
+    "flightDetailsCheck": "Yes",
     "dateCreated": "2016-07-13 00:00:00"
 }
