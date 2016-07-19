@@ -63,6 +63,14 @@
         "type": "string",
         "maxLength":5
       },
+      "flightDetailsCheck": {
+        "id": "flightDetailsCheck",
+        "type": "string",
+        "enum": [
+          "Yes",
+          "No"
+        ]
+      },
       "dateCreated": {
         "id": "dateCreated",
         "type": "string",
@@ -83,6 +91,7 @@
       "inwardDepartureCountry",
       "inwardDeparturePort",
       "inwardDeparturePortCode",
+      "flightDetailsCheck",
       "dateCreated"
     ],
     "dependencies": {}
