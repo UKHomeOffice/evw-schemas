@@ -12,7 +12,7 @@ import scala.util.Success
 
 class EvwFlightJourneyUpdateSchemaSpec extends Specification with Json with JsonFormats {
   val schema = JsonSchema(getClass.getResource("/schema/evw-flight-journey-update-schema.json"))
-  implicit val Success(json) = jsonFromClasspath("/data/flight-journey-primary-path-data.json")
+  implicit val Success(json) = jsonFromClasspath("/data/journey-update-data.json")
 
   "Invalid EVW Flight Journey Update Entry JSON" should {
 
