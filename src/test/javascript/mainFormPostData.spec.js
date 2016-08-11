@@ -46,6 +46,7 @@ describe('mainFormPostData', function () {
             doeYear: getYear(expectedData.passport.expiryDate),
             placeOfIssue: expectedData.passport.placeOfIssue,
             name: expectedData.passport.name,
+            checkName: expectedData.passport.checkName,
             gender: expectedData.passport.gender,
             dobDay: getDay(expectedData.passport.dateOfBirth),
             dobMonth: getMonth(expectedData.passport.dateOfBirth),

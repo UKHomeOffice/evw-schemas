@@ -19,6 +19,7 @@ function transformData(result) {
         objectId: result.objectId,
         passport: parsing.withoutEmpty({
             name: result.checkName,
+            checkName: result.checkName,
             surname: result.surname,
             familyName: result.familyName,
             givenNames: result.givenNames,
