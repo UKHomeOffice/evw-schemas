@@ -16,6 +16,11 @@
           "type": "string",
           "maxLength": 50
         },
+        "checkName": {
+          "id": "checkName",
+          "type": "string",
+          "maxLength": 50
+        },
         "surname": {
           "id": "surname",
           "type": "string",
