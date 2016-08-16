@@ -26,13 +26,28 @@
           "type": "string",
           "maxLength": 50
         },
+        "checkSurname": {
+          "id": "checkSurname",
+          "type": "string",
+          "maxLength": 50
+        },
         "familyName": {
           "id": "familyName",
           "type": "string",
           "maxLength": 50
         },
+        "checkFamilyName": {
+          "id": "checkFamilyName",
+          "type": "string",
+          "maxLength": 50
+        },
         "givenNames": {
           "id": "givenNames",
+          "type": "string",
+          "maxLength": 50
+        },
+        "checkGivenNames": {
+          "id": "checkGivenNames",
           "type": "string",
           "maxLength": 50
         },
@@ -508,6 +523,14 @@
           "id": "travelMethodLand",
           "type": "string",
           "maxLength":50
+        },
+        "flightDetailsCheck": {
+          "id": "flightDetailsCheck",
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
         }
       },
       "additionalProperties": false,
@@ -637,14 +660,6 @@
           "type": "string",
           "pattern": "^[^@]+@[^@]+\\.[^@]+$",
           "maxLength":127
-        },
-        "flightDetailsCheck": {
-          "id": "flightDetailsCheck",
-          "type": "string",
-          "enum": [
-            "Yes",
-            "No"
-          ]
         }
       },
       "dependencies": {
