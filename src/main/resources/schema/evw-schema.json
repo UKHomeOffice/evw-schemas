@@ -153,6 +153,26 @@
         "heldPreviousNationalities"
       ],
       "dependencies": {
+        "nationality": {
+          "oneOf": [
+            {
+              "properties": {
+                "nationality": {
+                  "enum": ["OMN"]
+                }
+              },
+              "required": ["surname", "checkSurname", "givenNames", "checkGivenNames"]
+            },
+            {
+              "properties": {
+                "nationality": {
+                  "enum": ["KWT", "QAT", "ARE"]
+                }
+              },
+              "required": ["name", "checkName"]
+            }
+          ]
+        },
         "holdOtherNationalities": {
           "oneOf": [
             {

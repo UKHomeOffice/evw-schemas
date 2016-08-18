@@ -1,12 +1,15 @@
 {
   "objectId": "558d7997ac7ed77d28c6ea92",
   "passport": {
-    "name": "Stella Burgess",
+    "givenNames": "Stella",
+    "checkGivenNames": "Stella",
+    "surname": "Burgess",
+    "checkSurname": "Burgess",
     "dateOfBirth": "1985-04-18",
     "expiryDate": "2023-01-14",
     "gender": "F",
     "issueDate": "2001-06-10",
-    "nationality": "KWT",
+    "nationality": "OMN",
     "passportNumber": "575ewe",
     "countryOfBirth": "KWT",
     "placeOfBirth": "Eligendi occaecat ipsum similique reprehenderit ab mollitia voluptatem sit lorem",
