@@ -73,7 +73,7 @@ class EvwSchemaSpec extends Specification with Json with JsonFormats {
       schema validate {
         replace(json \ "passport" \ "nationality" -> "FR")
       } must beLike[JValue Or JsonError] {
-        case Bad(JsonError(_, Some(error), _)) => error must contain("""enum: ["KWT","OMN","QAT","ARE"]""")
+        case Bad(JsonError(_, Some(error), _)) => error must contain("""enum (possible values: [\"KWT\",\"QAT\",\"ARE\"])""")
       }
     }
 
