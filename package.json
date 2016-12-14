@@ -6,7 +6,6 @@
   "devDependencies": {
     "chai": "^3.4.1",
     "mocha": "^2.2.5",
-    "moment": "^2.10.6",
     "moment-timezone": "^0.5.3",
     "sinon": "^1.17.6"
   },
@@ -14,6 +13,7 @@
     "test": "./node_modules/mocha/bin/mocha src/test/javascript/ --recursive"
   },
   "dependencies": {
+    "moment": "^2.10.6",
     "lodash": "^4.17.2"
   }
 }
