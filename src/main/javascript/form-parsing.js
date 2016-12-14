@@ -11,7 +11,7 @@ var _ = require('lodash');
  * @return Object
  */
 var _empty = function without (object) {
-    return _.pick(object, function (value) {
+    return _.pickBy(object, function (value) {
         return _.identity(value) || _.isNumber(value);
     });
 };
@@ -29,7 +29,7 @@ var withoutEmpty = function withoutEmpty (object) {
 };
 
 var emptyKeepFalsey = (object) => {
-    return _.omit(object, i => i === null || i === undefined || i.length === 0);
+    return _.omitBy(object, i => i === null || i === undefined || i.length === 0);
 };
 
 // Recursively remove items with string length 0 from an object

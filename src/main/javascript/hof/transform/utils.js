@@ -3,7 +3,7 @@
 const _ = require('lodash');
 const moment = require('moment');
 
-const without = object => _.pick(object, (value) => _.identity(value) || _.isNumber(value));
+const without = object => _.pickBy(object, (value) => _.identity(value) || _.isNumber(value));
 
 function withoutEmpty(object) {
   _.keys(object).map(key => {
