@@ -71,6 +71,54 @@
           "No"
         ]
       },
+      "haveDepartureFromUkDetailsChanged" : {
+        "id": "haveDepartureFromUkDetailsChanged",
+        "type": "string",
+        "enum": [
+          "Yes",
+          "No"
+        ]
+      },
+      "knowDepartureDetails": {
+        "id": "knowDepartureDetails",
+        "type": "string",
+        "enum": [
+          "Yes",
+          "No"
+        ]
+      },
+      "departureDate": {
+        "id": "departureDate",
+        "type": "string",
+        "pattern": "^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"
+      },
+      "portOfDeparture": {
+        "id": "portOfDeparture",
+        "type": "string",
+        "maxLength":95
+      },
+      "portOfDepartureCode": {
+        "id": "portOfDepartureCode",
+        "type": "string",
+        "maxLength":3
+      },
+      "departureTravel": {
+        "id": "departureTravel",
+        "type": "string",
+        "maxLength":30
+      },
+      "ukDuration": {
+        "id": "ukDuration",
+        "type": "string"
+      },
+      "visitMoreThanOnce": {
+        "id": "visitMoreThanOnce",
+        "type": "string",
+        "enum": [
+          "Yes",
+          "No"
+        ]
+      },
       "dateCreated": {
         "id": "dateCreated",
         "type": "string",
@@ -92,7 +140,60 @@
       "inwardDeparturePort",
       "inwardDeparturePortCode",
       "flightDetailsCheck",
+      "visitMoreThanOnce",
       "dateCreated"
     ],
-    "dependencies": {}
+    "dependencies": {
+      "haveDepartureFromUkDetailsChanged": {
+        "oneOf": [
+          {
+            "properties": {
+              "haveDepartureFromUkDetailsChanged": {
+                "enum": ["Yes"]
+              }
+            },
+            "required": [
+              "knowDepartureDetails"
+            ]
+          },
+          {
+            "properties": {
+              "haveDepartureFromUkDetailsChanged": {
+                "enum": ["No"]
+              }
+            },
+            "not": {"required": ["knowDepartureDetails"]}
+          }
+        ]
+      },
+      "knowDepartureDetails": {
+        "oneOf": [
+          {
+            "properties": {
+              "knowDepartureDetails": {
+                "enum": ["Yes"]
+              }
+            },
+            "required": [
+              "departureTravel",
+              "portOfDeparture",
+              "departureDate"
+            ],
+            "not": {"required": ["ukDuration"]}
+          },
+          {
+            "properties": {
+              "knowDepartureDetails": {
+                "enum": ["No"]
+              }
+            },
+            "required": ["ukDuration"],
+            "not": { "required": ["departureTravel"] },
+            "not": { "required": ["portOfDeparture"] },
+            "not": { "required": ["portOfDepartureCode"] },
+            "not": { "required": ["departureDate"] }
+          }
+        ]
+      }
+    }
   }
