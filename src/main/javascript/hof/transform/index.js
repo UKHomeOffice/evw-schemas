@@ -209,6 +209,18 @@ function transformReferenceData(initialData) {
   });
 }
 
+function transformDataSync(initialData) {
+  return Object.assign(
+    this.transformPassportData(initialData),
+    this.transformPassportImageData(initialData),
+    this.transformContactDetailsData(initialData),
+    this.transformJourneyData(initialData),
+    this.transformReferenceData(initialData),
+    this.transformAgentData(initialData),
+    this.transformPaymentData(initialData)
+  );
+}
+
 function transformData(initialData) {
   return Promise.resolve(Object.assign(
     this.transformPassportData(initialData),
@@ -223,6 +235,7 @@ function transformData(initialData) {
 
 module.exports = {
   transformData: transformData,
+  transformDataSync: transformDataSync,
   transformPassportData: transformPassportData,
   transformPassportImageData: transformPassportImageData,
   transformJourneyData: transformJourneyData,

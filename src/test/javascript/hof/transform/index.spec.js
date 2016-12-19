@@ -2,7 +2,7 @@
 
 const sinon = require('sinon');
 const transform = require('../../../../../src/main/javascript/hof/transform');
-const sampleApplicationData = require('../data/sample-application-data');
+const sampleApplicationData = require('../../../../main/resources/data/hof/sample-application-data');
 const sampleAppWithExtraProperties = {
   invalidProperty1: 'value1',
   'invalid-property2': 'value2'
@@ -514,6 +514,15 @@ describe('apps/common/models/transform', function() {
           result.should.have.property('applicationReference');
           result.journey.should.have.property('travelBy', travelMethod === 'Manual Entry Plane' ? 'Plane': travelMethod);
         });
+      });
+    });
+  });
+
+  describe('#transformDataSync', function() {
+    it('should transform in same way as #transformData', function() {
+      const transformSync = transform.transformDataSync(sampleApplicationData.sampleCompletePlaneApplication);
+      return transform.transformData(sampleApplicationData.sampleCompletePlaneApplication).then(result => {
+        transformSync.should.deep.equal(result);
       });
     });
   });
