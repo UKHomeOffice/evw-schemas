@@ -5,7 +5,8 @@ var evw = {
         mainFormPostData: require('../javascript/mainFormPostData.js')
     },
     hof: {
-        transform: require('./hof/transform')
+        transform: require('./hof/transform'),
+        sampleApplicationData: require('../resources/data/hof/sample-application-data')
     }
 };
 

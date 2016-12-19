@@ -31,11 +31,21 @@ describe('evw schemas', function () {
 
         const module = schemas.evw.hof;
 
-        it('mainForm should have a valid transform', function () {
+        it('hof should have a valid transform', function () {
             expect(module).to.be.an('object');
             expect(module).to.have.property('transform');
             expect(module.transform).to.be.an('object');
             expect(module.transform.transformData).to.be.a.function;
+        });
+
+        it('hof should have a some sample application data', function () {
+            expect(module.sampleApplicationData).to.be.an('object');
+            expect(module.sampleApplicationData.sampleCompletePlaneApplication).to.be.an.object;
+            expect(module.sampleApplicationData.sampleCompleteManualEntryPlaneApplication).to.be.an.object;
+            expect(module.sampleApplicationData.sampleCompletePrivatePlaneApplication).to.be.an.object;
+            expect(module.sampleApplicationData.sampleCompleteTrainApplication).to.be.an.object;
+            expect(module.sampleApplicationData.sampleCompleteBoatApplication).to.be.an.object;
+            expect(module.sampleApplicationData.sampleCompleteLandApplication).to.be.an.object;
         });
 
     });
