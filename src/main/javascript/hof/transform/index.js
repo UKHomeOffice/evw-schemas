@@ -76,9 +76,9 @@ function getPlaneJourneyDetails(initialData) {
   if (initialData['is-this-your-flight'] === 'Yes') {
     return {
       arrivalTravel: initialData['plane-flight-number'],
-      arrivalDate: initialData['plane-date-of-arrival'],
+      arrivalDate: initialData.flightDetails && initialData.flightDetails.arrivalDateRaw,
       arrivalTime: initialData.flightDetails && initialData.flightDetails.arrivalTime,
-      departureForUKDate: utils.getUtcDate(initialData['plane-date-of-departure'] + ' ' + initialData['plane-time-of-departure']),
+      departureForUKDate: utils.getUtcDate(initialData.flightDetails.departureDateRaw + ' ' + initialData.flightDetails.departureTime),
       portOfArrival: initialData.flightDetails && initialData.flightDetails.arrivalAirport,
       portOfArrivalCode: initialData.flightDetails && initialData.flightDetails.portOfArrivalPlaneCode,
       inwardDepartureCountry: initialData.flightDetails && initialData.flightDetails.inwardDepartureCountryPlaneCode,
