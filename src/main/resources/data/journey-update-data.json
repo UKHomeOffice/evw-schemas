@@ -6,6 +6,7 @@
     "arrivalTime" : "08:45",
     "departureForUKDate" : "2016-11-26",
     "departureForUKTime" : "14:11",
+    "departureForUKDateOffset": "+04:00",
     "portOfArrival" : "London Gatwick",
     "portOfArrivalCode" : "LGW",
     "inwardDepartureCountry": "FRA",

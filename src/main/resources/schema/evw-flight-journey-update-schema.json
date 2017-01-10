@@ -38,6 +38,11 @@
         "type": "string",
         "pattern":"^([0-9]{2}):([0-9]{2})$"
       },
+      "departureForUKDateOffset": {
+        "id": "departureForUKDateOffset",
+        "type": "string",
+        "pattern":"^(\\+|-)[0-9]{2}:[0-9]{2}$"
+      },
       "portOfArrival": {
         "id": "portOfArrival",
         "type": "string",
@@ -125,6 +130,7 @@
       "arrivalDate",
       "arrivalTime",
       "departureForUKDate",
+      "departureForUKDateOffset",
       "departureForUKTime",
       "portOfArrival",
       "portOfArrivalCode",
