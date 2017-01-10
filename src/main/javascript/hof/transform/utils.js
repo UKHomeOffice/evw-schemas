@@ -2,6 +2,7 @@
 
 const _ = require('lodash');
 const moment = require('moment');
+require('moment-timezone');
 
 const without = object => _.pickBy(object, (value) => _.identity(value) || _.isNumber(value));
 
@@ -33,6 +34,11 @@ function getUtcDate(date) {
   return (utcDate === 'Invalid date') ? null : utcDate;
 }
 
+function getTimezoneDate(date, timezone) {
+  const timezoneDate = moment.tz(date, timezone);
+  return timezoneDate.isValid() ? timezoneDate : null;
+}
+
 function formatDate(date, format) {
   return date ? moment(date).format(format || 'YYYY-MM-DD HH:mm:ss') : '';
 }
@@ -42,5 +48,6 @@ module.exports = {
   withoutEmpty: withoutEmpty,
   existsIfEqual: existsIfEqual,
   getUtcDate: getUtcDate,
+  getTimezoneDate: getTimezoneDate,
   formatDate: formatDate
 };

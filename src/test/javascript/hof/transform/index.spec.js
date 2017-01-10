@@ -142,6 +142,7 @@ describe('apps/common/models/transform', function() {
           'arrivalTravel': 'EK009',
           'departureDate': '2017-06-16',
           'departureForUKDate': '2014-06-26 14:35:00',
+          'departureForUKDateOffset': '+04:00',
           'departureTravel': 'BA001',
           'flightDetailsCheck': 'Yes',
           'inwardDeparturePortCode': 'DXB',
