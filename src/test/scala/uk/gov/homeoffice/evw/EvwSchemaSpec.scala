@@ -151,7 +151,6 @@ class EvwSchemaSpec extends Specification with Json with JsonFormats {
       val requiredJson = json removeField {
         case (key, _) => "orderCode" == key
       }
-      println(requiredJson)
       schema validate(requiredJson) must beLike[JValue Or JsonError] {
         case Bad(JsonError(_, Some(error), _)) => error must contain("""required: ["feeInPence","orderCode","paid","paymentDate"]""")
       }
@@ -160,6 +159,14 @@ class EvwSchemaSpec extends Specification with Json with JsonFormats {
     "contain extra/unexpected data" in {
       schema.validate(json merge parse("""{ "extra": "data" }""")) must beLike[JValue Or JsonError] {
         case Bad(JsonError(_, Some(error), _)) => error must contain("""unwanted: ["extra"]""")
+      }
+    }
+
+    "have incorrect 'departure for UK date offset'" in {
+      schema.validate {
+        replace(json \ "journey" \ "departureForUKDateOffset" -> "+AB:00")
+      } must beLike[JValue Or JsonError] {
+        case Bad(JsonError(_, Some(error), _)) => error must contain(""""pointer":"/journey/departureForUKDateOffset"""")
       }
     }
   }

@@ -49,6 +49,7 @@
     "arrivalDate" : "2015-11-26",
     "arrivalTime" : "21:45",
     "departureForUKDate" : "2015-06-26 17:11:00",
+    "departureForUKDateOffset" : "+04:00",
     "portOfArrival" : "London Heathrow",
     "portOfArrivalCode" : "LHR",
     "ukAddress" : [
