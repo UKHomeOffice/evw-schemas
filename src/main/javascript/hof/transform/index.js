@@ -79,7 +79,6 @@ function getPlaneJourneyDetails(initialData) {
       arrivalDate: initialData.flightDetails && initialData.flightDetails.arrivalDateRaw,
       arrivalTime: initialData.flightDetails && initialData.flightDetails.arrivalTime,
       departureForUKDate: utils.getUtcDate(initialData.flightDetails.departureDateRaw + ' ' + initialData.flightDetails.departureTime),
-      departureForUKDateOffset: utils.getTimezoneDate(initialData.flightDetails.departureDateRaw + ' ' + initialData.flightDetails.departureTime, initialData.flightDetails.departureTimezone).format('Z'),
       portOfArrival: initialData.flightDetails && initialData.flightDetails.arrivalAirport,
       portOfArrivalCode: initialData.flightDetails && initialData.flightDetails.portOfArrivalPlaneCode,
       inwardDepartureCountry: initialData.flightDetails && initialData.flightDetails.inwardDepartureCountryPlaneCode,

@@ -178,12 +178,5 @@ class EvwSchemaSpec extends Specification with Json with JsonFormats {
       }
       schema.validate(requiredJson) mustEqual Good(requiredJson)
     }
-
-    "is valid without 'departure for UK date offset'" in {
-      val requiredJson = json removeField {
-        case (key, _) => "departureForUKDateOffset" == key
-      }
-      schema.validate(requiredJson) mustEqual Good(requiredJson)
-    }
   }
 }

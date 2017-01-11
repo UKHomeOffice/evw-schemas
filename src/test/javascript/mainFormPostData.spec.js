@@ -1,8 +1,6 @@
 
 var assert = require('chai').assert;
 var expectedData = require('../../main/javascript/index').evw.mainForm.testData;
-// remove the offset for this pre-HOF test
-delete expectedData.journey.departureForUKDateOffset;
 var mainFormPostData = require('../../main/javascript/index').evw.mainForm.mainFormPostData;
 var moment = require('moment');
 

@@ -97,14 +97,6 @@ class EvwFlightJourneyUpdateSchemaSpec extends Specification with Json with Json
         case Bad(JsonError(_, Some(error), _)) => error must contain("""missing: ["departureForUKDateOffset"]""")
       }
     }
-
-    "have invalid 'departure for UK date offset'" in {
-      schema.validate {
-        replace(json \ "departureForUKDateOffset" -> "+AB:00")
-      } must beLike[JValue Or JsonError] {
-        case Bad(JsonError(_, Some(error), _)) => error must contain(""""pointer":"/departureForUKDateOffset"""")
-      }
-    }
   }
 
  "Valid Flight Journey Update JSON" should {
@@ -132,11 +124,5 @@ class EvwFlightJourneyUpdateSchemaSpec extends Specification with Json with Json
      schema.validate(jsonDepartureFromUkChangedKnowsDetails) mustEqual Good(jsonDepartureFromUkChangedKnowsDetails)
    }
 
-    "is valid without 'departure for UK date offset'" in {
-      val requiredJson = json removeField {
-        case (key, _) => "departureForUKDateOffset" == key
-      }
-      schema.validate(requiredJson) mustEqual Good(requiredJson)
-    }
   }
 }

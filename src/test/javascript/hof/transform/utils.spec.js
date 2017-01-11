@@ -94,17 +94,4 @@ describe('apps/common/models/transform/utils', function() {
       utils.formatDate(date, 'DD/MM/YYYY').should.equal('15/02/2016');
     });
   });
-
-  describe('#getTimezoneDate', function() {
-    it('returns timezone specific date', function() {
-      const date = utils.getTimezoneDate('2017-01-21 16:30', 'Asia/Dubai');
-      date._z.should.have.property('name', 'Asia/Dubai');
-      date.format('Z').should.equal('+04:00');
-    });
-
-    it('should return null if date is invalid', function() {
-      expect(utils.getTimezoneDate('2017-01-32 16:30', 'Asia/Dubai')).to.be.null;
-    });
-  });
-
 });
