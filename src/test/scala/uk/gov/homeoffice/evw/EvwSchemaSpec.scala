@@ -161,14 +161,6 @@ class EvwSchemaSpec extends Specification with Json with JsonFormats {
         case Bad(JsonError(_, Some(error), _)) => error must contain("""unwanted: ["extra"]""")
       }
     }
-
-    "have incorrect 'departure for UK date offset'" in {
-      schema.validate {
-        replace(json \ "journey" \ "departureForUKDateOffset" -> "+AB:00")
-      } must beLike[JValue Or JsonError] {
-        case Bad(JsonError(_, Some(error), _)) => error must contain(""""pointer":"/journey/departureForUKDateOffset"""")
-      }
-    }
   }
 
   "Valid EVW JSON" should {
@@ -183,6 +175,13 @@ class EvwSchemaSpec extends Specification with Json with JsonFormats {
     "have all required data" in {
       val requiredJson = json removeField {
         case (key, _) => "secondEmail" == key
+      }
+      schema.validate(requiredJson) mustEqual Good(requiredJson)
+    }
+
+    "is valid without 'departure for UK date offset'" in {
+      val requiredJson = json removeField {
+        case (key, _) => "departureForUKDateOffset" == key
       }
       schema.validate(requiredJson) mustEqual Good(requiredJson)
     }

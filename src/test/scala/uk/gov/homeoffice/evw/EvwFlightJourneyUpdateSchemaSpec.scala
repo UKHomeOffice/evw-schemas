@@ -113,23 +113,30 @@ class EvwFlightJourneyUpdateSchemaSpec extends Specification with Json with Json
       schema.validate(json) mustEqual Good(json)
     }
 
-    "against journey update data where haveDepartureFromUkDetailsChanged is not set" in {
+   "against journey update data where haveDepartureFromUkDetailsChanged is not set" in {
 
-      val haveDepartureFromUkDetailsChangedNotSetJson = json.removeField {
-        case("haveDepartureFromUkDetailsChanged", _) => true
-        case(_) => false
+     val haveDepartureFromUkDetailsChangedNotSetJson = json.removeField {
+       case("haveDepartureFromUkDetailsChanged", _) => true
+       case(_) => false
+     }
+     schema.validate(haveDepartureFromUkDetailsChangedNotSetJson) mustEqual
+       Good(haveDepartureFromUkDetailsChangedNotSetJson)
+   }
+
+   "against journey update data where haveDepartureFromUkDetailsChanged is yes and knowDepartureDetails is no" in {
+
+     schema.validate(jsonDepartureFromUkChanged) mustEqual Good(jsonDepartureFromUkChanged)
+   }
+
+   "against journey update data where haveDepartureFromUkDetailsChanged is yes and knowDepartureDetails is yes" in {
+     schema.validate(jsonDepartureFromUkChangedKnowsDetails) mustEqual Good(jsonDepartureFromUkChangedKnowsDetails)
+   }
+
+    "is valid without 'departure for UK date offset'" in {
+      val requiredJson = json removeField {
+        case (key, _) => "departureForUKDateOffset" == key
       }
-      schema.validate(haveDepartureFromUkDetailsChangedNotSetJson) mustEqual
-        Good(haveDepartureFromUkDetailsChangedNotSetJson)
-    }
-
-    "against journey update data where haveDepartureFromUkDetailsChanged is yes and knowDepartureDetails is no" in {
-
-      schema.validate(jsonDepartureFromUkChanged) mustEqual Good(jsonDepartureFromUkChanged)
-    }
-
-    "against journey update data where haveDepartureFromUkDetailsChanged is yes and knowDepartureDetails is yes" in {
-      schema.validate(jsonDepartureFromUkChangedKnowsDetails) mustEqual Good(jsonDepartureFromUkChangedKnowsDetails)
+      schema.validate(requiredJson) mustEqual Good(requiredJson)
     }
   }
 }
