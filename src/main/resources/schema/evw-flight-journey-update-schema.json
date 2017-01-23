@@ -111,14 +111,6 @@
         "id": "ukDuration",
         "type": "string"
       },
-      "visitMoreThanOnce": {
-        "id": "visitMoreThanOnce",
-        "type": "string",
-        "enum": [
-          "Yes",
-          "No"
-        ]
-      },
       "dateCreated": {
         "id": "dateCreated",
         "type": "string",
@@ -140,7 +132,6 @@
       "inwardDeparturePort",
       "inwardDeparturePortCode",
       "flightDetailsCheck",
-      "visitMoreThanOnce",
       "dateCreated"
     ],
     "dependencies": {
