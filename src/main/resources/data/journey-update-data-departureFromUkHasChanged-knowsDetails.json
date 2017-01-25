@@ -12,6 +12,10 @@
     "inwardDeparturePort": " Paris",
     "inwardDeparturePortCode": "PAR",
     "flightDetailsCheck": "Yes",
-    "haveDepartureFromUkDetailsChanged" : "No",
+    "haveDepartureFromUkDetailsChanged" : "Yes",
+    "knowDepartureDetails" : "Yes",
+    "departureTravel" : "BA123",
+    "portOfDeparture" : "London Heathrow",
+    "departureDate" : "2017-11-27",
     "dateCreated": "2016-07-13 00:00:00"
 }
