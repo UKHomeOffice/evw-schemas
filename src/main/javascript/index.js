@@ -7,6 +7,9 @@ var evw = {
     hof: {
         transform: require('./hof/transform'),
         sampleApplicationData: require('../resources/data/hof/sample-application-data')
+    },
+    updateJourney: {
+        schema: require('../resources/schema/evw-flight-journey-update-schema.json')
     }
 };
 

@@ -27,6 +27,19 @@ describe('evw schemas', function () {
 
     });
 
+    describe('checking schemas for updateJourney module', function () {
+
+        const module = schemas.evw.updateJourney;
+
+        it('updateJourney should have a valid schema', function () {
+            expect(module).to.be.an('object');
+            expect(module).to.have.property('schema');
+            expect(module.schema).to.be.an('object');
+            expect(module.schema).to.have.property('$schema');
+        });
+
+    });
+
     describe('checking exports for hof module', function () {
 
         const module = schemas.evw.hof;
