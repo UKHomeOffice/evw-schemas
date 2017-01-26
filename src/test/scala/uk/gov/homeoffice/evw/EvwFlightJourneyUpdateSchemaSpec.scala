@@ -88,15 +88,6 @@ class EvwFlightJourneyUpdateSchemaSpec extends Specification with Json with Json
           error must contain(""""pointer":"/dependencies/knowDepartureDetails"""")
       }
     }
-
-    "have missing 'departure for UK date offset'" in {
-      val requiredJson = json removeField {
-        case (key, _) => "departureForUKDateOffset" == key
-      }
-      schema validate(requiredJson) must beLike[JValue Or JsonError] {
-        case Bad(JsonError(_, Some(error), _)) => error must contain("""missing: ["departureForUKDateOffset"]""")
-      }
-    }
   }
 
  "Valid Flight Journey Update JSON" should {
