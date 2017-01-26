@@ -90,30 +90,29 @@ class EvwFlightJourneyUpdateSchemaSpec extends Specification with Json with Json
     }
   }
 
- "Valid Flight Journey Update JSON" should {
+  "Valid Flight Journey Update JSON" should {
 
     "against journey update data where haveDepartureFromUkDetailsChanged is no" in {
       schema.validate(json) mustEqual Good(json)
     }
 
-   "against journey update data where haveDepartureFromUkDetailsChanged is not set" in {
+    "against journey update data where haveDepartureFromUkDetailsChanged is not set" in {
 
-     val haveDepartureFromUkDetailsChangedNotSetJson = json.removeField {
-       case("haveDepartureFromUkDetailsChanged", _) => true
-       case(_) => false
-     }
-     schema.validate(haveDepartureFromUkDetailsChangedNotSetJson) mustEqual
-       Good(haveDepartureFromUkDetailsChangedNotSetJson)
-   }
+      val haveDepartureFromUkDetailsChangedNotSetJson = json.removeField {
+        case("haveDepartureFromUkDetailsChanged", _) => true
+        case(_) => false
+      }
+      schema.validate(haveDepartureFromUkDetailsChangedNotSetJson) mustEqual
+        Good(haveDepartureFromUkDetailsChangedNotSetJson)
+    }
 
-   "against journey update data where haveDepartureFromUkDetailsChanged is yes and knowDepartureDetails is no" in {
+    "against journey update data where haveDepartureFromUkDetailsChanged is yes and knowDepartureDetails is no" in {
 
-     schema.validate(jsonDepartureFromUkChanged) mustEqual Good(jsonDepartureFromUkChanged)
-   }
+      schema.validate(jsonDepartureFromUkChanged) mustEqual Good(jsonDepartureFromUkChanged)
+    }
 
-   "against journey update data where haveDepartureFromUkDetailsChanged is yes and knowDepartureDetails is yes" in {
-     schema.validate(jsonDepartureFromUkChangedKnowsDetails) mustEqual Good(jsonDepartureFromUkChangedKnowsDetails)
-   }
-
+    "against journey update data where haveDepartureFromUkDetailsChanged is yes and knowDepartureDetails is yes" in {
+      schema.validate(jsonDepartureFromUkChangedKnowsDetails) mustEqual Good(jsonDepartureFromUkChangedKnowsDetails)
+    }
   }
 }
