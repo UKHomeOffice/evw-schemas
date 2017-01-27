@@ -2,6 +2,7 @@
 
 const _ = require('lodash');
 const moment = require('moment');
+require('moment-timezone');
 
 const without = object => _.pickBy(object, (value) => _.identity(value) || _.isNumber(value));
 

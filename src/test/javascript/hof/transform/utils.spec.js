@@ -94,5 +94,4 @@ describe('apps/common/models/transform/utils', function() {
       utils.formatDate(date, 'DD/MM/YYYY').should.equal('15/02/2016');
     });
   });
-
 });

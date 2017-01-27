@@ -90,7 +90,7 @@ class EvwFlightJourneyUpdateSchemaSpec extends Specification with Json with Json
     }
   }
 
- "Valid Flight Journey Update JSON" should {
+  "Valid Flight Journey Update JSON" should {
 
     "against journey update data where haveDepartureFromUkDetailsChanged is no" in {
       schema.validate(json) mustEqual Good(json)

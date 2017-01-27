@@ -151,7 +151,6 @@ class EvwSchemaSpec extends Specification with Json with JsonFormats {
       val requiredJson = json removeField {
         case (key, _) => "orderCode" == key
       }
-      println(requiredJson)
       schema validate(requiredJson) must beLike[JValue Or JsonError] {
         case Bad(JsonError(_, Some(error), _)) => error must contain("""required: ["feeInPence","orderCode","paid","paymentDate"]""")
       }
