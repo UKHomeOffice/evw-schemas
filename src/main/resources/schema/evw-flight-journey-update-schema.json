@@ -41,7 +41,7 @@
       "portOfArrival": {
         "id": "portOfArrival",
         "type": "string",
-        "maxLength":25
+        "maxLength":95
       },
       "portOfArrivalCode": {
         "id": "portOfArrivalCode",
