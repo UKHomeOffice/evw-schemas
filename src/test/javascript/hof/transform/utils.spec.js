@@ -94,4 +94,34 @@ describe('apps/common/models/transform/utils', function() {
       utils.formatDate(date, 'DD/MM/YYYY').should.equal('15/02/2016');
     });
   });
+
+  describe('#getOptionCode', function() {
+    it('handles non-string values', function() {
+      utils.getOptionCode({}).should.equal('');
+      utils.getOptionCode(123).should.equal('');
+    });
+
+    it('returns the part up to the underscore', function() {
+      utils.getOptionCode('GBR_Great Britain').should.equal('GBR');
+    });
+
+    it('returns empty string if no underscore is found', function() {
+      utils.getOptionCode('Great Britain').should.equal('');
+    });
+  });
+
+  describe('#getOptionValue', function() {
+    it('handles non-string values', function() {
+      utils.getOptionValue({}).should.equal('');
+      utils.getOptionValue(123).should.equal('');
+    });
+
+    it('returns the part beyond the underscore', function() {
+      utils.getOptionValue('GBR_Great Britain').should.equal('Great Britain');
+    });
+
+    it('returns the value if no underscore is found', function() {
+      utils.getOptionValue('Great Britain').should.equal('Great Britain');
+    });
+  });
 });
