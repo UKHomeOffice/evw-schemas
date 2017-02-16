@@ -48,8 +48,8 @@ function transformContactDetailsData(initialData) {
       ],
       mobilePhoneNumber: initialData.mobile,
       phoneNumber: initialData['home-phone'],
-      countryAppliedFrom: initialData['country-applied-from-option-value'],
-      countryAppliedFromCode: initialData['country-applied-from'],
+      countryAppliedFrom: utils.getOptionValue(initialData['country-applied-from']),
+      countryAppliedFromCode: utils.getOptionCode(initialData['country-applied-from']),
       areYouEmployed: initialData.employed,
       companyName: initialData['employer-company'],
       occupation: initialData['job-title']
@@ -63,10 +63,10 @@ function getManualEntryPlaneJourneyDetails(initialData) {
     arrivalDate: initialData['plane-date-of-arrival'],
     arrivalTime: initialData['plane-time-of-arrival'],
     departureForUKDate: utils.getUtcDate(initialData['plane-date-of-departure'] + ' ' + initialData['plane-time-of-departure']),
-    portOfArrival: initialData['plane-port-of-arrival-option-value'],
+    portOfArrival: utils.getOptionValue(initialData['plane-port-of-arrival']),
     portOfArrivalCode: utils.getOptionCode(initialData['plane-port-of-arrival']),
     inwardDepartureCountry: utils.getOptionCode(initialData['plane-country-of-departure']),
-    inwardDeparturePort: initialData['plane-port-of-departure-option-value'],
+    inwardDeparturePort: utils.getOptionValue(initialData['plane-port-of-departure']),
     inwardDeparturePortCode: utils.getOptionCode(initialData['plane-port-of-departure']),
     flightDetailsCheck: initialData['is-this-your-flight']
   };
@@ -91,41 +91,30 @@ function getPlaneJourneyDetails(initialData) {
 }
 
 function getTrainJourneyDetails(initialData) {
-
-  const inwardDeparturePort = initialData['train-departure-station-option-value'];
-  const inwardDeparturePortCode = inwardDeparturePort === initialData['train-departure-station'] ? '' :  utils.getOptionCode(initialData['train-departure-station']);
-
   return {
     arrivalTravel: initialData['train-number'],
     arrivalDate: initialData['train-arrival-date'],
     arrivalTime: initialData['train-arrival-time'],
     departureForUKDate: utils.getUtcDate(initialData['train-departure-date'] + ' ' + initialData['train-departure-time']),
-    portOfArrival: initialData['train-arrival-station-option-value'],
+    portOfArrival: utils.getOptionValue(initialData['train-arrival-station']),
     portOfArrivalCode:  utils.getOptionCode(initialData['train-arrival-station']),
     inwardDepartureCountry:  utils.getOptionCode(initialData['train-departure-country']),
-    inwardDeparturePort: inwardDeparturePort,
-    inwardDeparturePortCode: inwardDeparturePortCode
+    inwardDeparturePort: utils.getOptionValue(initialData['train-departure-station']),
+    inwardDeparturePortCode: utils.getOptionCode(initialData['train-departure-station'])
   };
 }
 
 function getBoatJourneyDetails(initialData) {
-
-  const inwardDeparturePort = initialData['boat-port-of-departure-option-value'];
-  const inwardDeparturePortCode = inwardDeparturePort === initialData['boat-port-of-departure'] ? '' : utils.getOptionCode(initialData['boat-port-of-departure']);
-
-  const portOfArrival = initialData['boat-port-of-arrival-option-value'];
-  const portOfArrivalCode = portOfArrival === initialData['boat-port-of-arrival'] ? '' : utils.getOptionCode(initialData['boat-port-of-arrival']);
-
   return {
     arrivalTravel: initialData['boat-name'],
     arrivalDate: initialData['boat-date-of-arrival'],
     arrivalTime: initialData['boat-time-of-arrival'],
     departureForUKDate: utils.getUtcDate(initialData['boat-date-of-departure'] + ' ' + initialData['boat-time-of-departure']),
-    portOfArrival: portOfArrival,
-    portOfArrivalCode: portOfArrivalCode,
+    portOfArrival: utils.getOptionValue(initialData['boat-port-of-arrival']),
+    portOfArrivalCode: utils.getOptionCode(initialData['boat-port-of-arrival']),
     inwardDepartureCountry: utils.getOptionCode(initialData['boat-country-of-departure']),
-    inwardDeparturePort: inwardDeparturePort,
-    inwardDeparturePortCode: inwardDeparturePortCode
+    inwardDeparturePort: utils.getOptionValue(initialData['boat-port-of-departure']),
+    inwardDeparturePortCode: utils.getOptionCode(initialData['boat-port-of-departure'])
   };
 }
 
@@ -156,8 +145,8 @@ function transformJourneyData(initialData) {
         visitMoreThanOnce: initialData['uk-visit-more-than-once'],
         knowDepartureDetails: initialData['know-departure-details'],
         departureDate: initialData['uk-date-of-departure'],
-        portOfDeparture: utils.existsIfEqual(initialData['know-departure-details'], 'Yes', initialData['uk-port-of-departure-option-value']),
-        portOfDepartureCode: utils.existsIfEqual(initialData['know-departure-details'], 'Yes', initialData['uk-port-of-departure']),
+        portOfDeparture: utils.existsIfEqual(initialData['know-departure-details'], 'Yes', utils.getOptionValue(initialData['uk-port-of-departure'])),
+        portOfDepartureCode: utils.existsIfEqual(initialData['know-departure-details'], 'Yes', utils.getOptionCode(initialData['uk-port-of-departure'])),
         departureTravel: utils.existsIfEqual(initialData['know-departure-details'], 'Yes', initialData['uk-departure-travel-number']),
         reasonForTravel: initialData['reason-for-visit'] === 'Other' ? initialData['other-reason-for-visit'] : initialData['reason-for-visit'],
         travelWithOthers: initialData['travelling-with-others'],

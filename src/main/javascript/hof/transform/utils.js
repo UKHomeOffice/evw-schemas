@@ -42,11 +42,16 @@ function getOptionCode(value) {
   return typeof value === 'string' ? value.substr(0, value.indexOf('_')) : '';
 }
 
+function getOptionValue(value) {
+  return typeof value === 'string' ? value.substr(value.indexOf('_') + 1) : '';
+}
+
 module.exports = {
   getGender: getGender,
   withoutEmpty: withoutEmpty,
   existsIfEqual: existsIfEqual,
   getUtcDate: getUtcDate,
   formatDate: formatDate,
-  getOptionCode: getOptionCode
+  getOptionCode: getOptionCode,
+  getOptionValue: getOptionValue
 };

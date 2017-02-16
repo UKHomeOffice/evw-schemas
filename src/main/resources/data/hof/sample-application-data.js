@@ -48,8 +48,7 @@ const sampleContactDetailsData = {
   'home-country': 'UK',
   'home-phone': '+217-84-6087337',
   'mobile': '+344-59-7767795',
-  'country-applied-from': 'OMN',
-  'country-applied-from-option-value': 'Oman',
+  'country-applied-from': 'OMN_Oman',
   'employed': 'Yes',
   'employer-company': 'Sonia Trujillo',
   'job-title': 'Manager'
@@ -70,8 +69,7 @@ const sampleVisitInformationData = {
   'uk-visit-more-than-once': 'Yes',
   'know-departure-details': 'Yes',
   'uk-date-of-departure': '2017-06-16',
-  'uk-port-of-departure': 'LGW',
-  'uk-port-of-departure-option-value': 'London - Gatwick',
+  'uk-port-of-departure': 'LGW_London - Gatwick',
   'uk-departure-travel-number': 'BA001'
 };
 
@@ -157,10 +155,8 @@ const sampleManualEntryPlaneJourneyData = Object.assign(
     'plane-time-of-departure-hour': '09',
     'plane-time-of-departure-minute': '45',
     'plane-port-of-arrival': 'BHX_Birmingham',
-    'plane-port-of-arrival-option-value': 'Birmingham',
     'plane-country-of-departure': 'FRA_France',
     'plane-port-of-departure': 'CDG_Paris - Charles de Gaulle',
-    'plane-port-of-departure-option-value': 'Paris - Charles de Gaulle'
   },
   sampleVisitInformationData
 );
@@ -180,9 +176,7 @@ const samplePrivatePlaneJourneyData = Object.assign(
     'plane-time-of-departure-minute': '45',
     'plane-country-of-departure': 'ARE_United Arab Emirates',
     'plane-port-of-departure': 'DXB_Dubai',
-    'plane-port-of-departure-option-value': 'Dubai',
     'plane-port-of-arrival': 'LGW_London - Gatwick',
-    'plane-port-of-arrival-option-value': 'London - Gatwick',
     'plane-date-of-arrival': '2017-01-12',
     'plane-date-of-arrival-day': '12',
     'plane-date-of-arrival-month': '01',
@@ -207,9 +201,7 @@ const sampleTrainJourneyData = Object.assign(
     'train-departure-time-minute': '00',
     'train-departure-country': 'FRA_France',
     'train-departure-station': 'JBT_Boulogne',
-    'train-departure-station-option-value': 'Boulogne',
     'train-arrival-station': 'AFK_Ashford Intl',
-    'train-arrival-station-option-value': 'Ashford Intl',
     'train-arrival-date': '2016-12-21',
     'train-arrival-date-day': '21',
     'train-arrival-date-month': '12',
@@ -242,10 +234,8 @@ const sampleBoatJourneyData = Object.assign(
     'boat-time-of-arrival-hour': '16',
     'boat-time-of-arrival-minute': '00',
     'boat-port-of-arrival': 'FOL_FOLKESTONE',
-    'boat-port-of-arrival-option-value': 'FOLKESTONE',
     'boat-country-of-departure': 'FRA_France',
     'boat-port-of-departure': 'JDU_Dunkerque',
-    'boat-port-of-departure-option-value': 'Dunkerque',
     'boat-date-of-departure-formatted': '22/01/2017',
     'boat-date-of-arrival-formatted': '22/01/2017'
   },

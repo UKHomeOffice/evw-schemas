@@ -252,7 +252,6 @@ describe('apps/common/models/transform', function() {
 
     it('transforms train departure station not found in station typeahead', function() {
       const data = Object.assign({}, sampleApplicationData.sampleTrainJourneyData);
-      data['train-departure-station-option-value'] = 'My own station';
       data['train-departure-station'] = 'My own station';
 
       const result = transform.transformJourneyData(data);
@@ -298,9 +297,7 @@ describe('apps/common/models/transform', function() {
     it('transforms boat departure port and arrival port not found in station typeahead', function() {
       const data = Object.assign({}, sampleApplicationData.sampleBoatJourneyData);
       data['boat-port-of-departure'] = 'My departure port';
-      data['boat-port-of-departure-option-value'] = 'My departure port';
       data['boat-port-of-arrival'] = 'My arrival port';
-      data['boat-port-of-arrival-option-value'] = 'My arrival port';
 
       const result = transform.transformJourneyData(data);
 
