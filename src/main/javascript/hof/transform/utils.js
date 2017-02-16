@@ -38,10 +38,15 @@ function formatDate(date, format) {
   return date ? moment(date).format(format || 'YYYY-MM-DD HH:mm:ss') : '';
 }
 
+function getOptionCode(value) {
+  return typeof value === 'string' ? value.substr(0, value.indexOf('_')) : '';
+}
+
 module.exports = {
   getGender: getGender,
   withoutEmpty: withoutEmpty,
   existsIfEqual: existsIfEqual,
   getUtcDate: getUtcDate,
-  formatDate: formatDate
+  formatDate: formatDate,
+  getOptionCode: getOptionCode
 };

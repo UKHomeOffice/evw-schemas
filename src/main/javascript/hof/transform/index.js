@@ -64,10 +64,10 @@ function getManualEntryPlaneJourneyDetails(initialData) {
     arrivalTime: initialData['plane-time-of-arrival'],
     departureForUKDate: utils.getUtcDate(initialData['plane-date-of-departure'] + ' ' + initialData['plane-time-of-departure']),
     portOfArrival: initialData['plane-port-of-arrival-option-value'],
-    portOfArrivalCode: initialData['plane-port-of-arrival'],
-    inwardDepartureCountry: initialData['plane-country-of-departure'],
+    portOfArrivalCode: utils.getOptionCode(initialData['plane-port-of-arrival']),
+    inwardDepartureCountry: utils.getOptionCode(initialData['plane-country-of-departure']),
     inwardDeparturePort: initialData['plane-port-of-departure-option-value'],
-    inwardDeparturePortCode: initialData['plane-port-of-departure'],
+    inwardDeparturePortCode: utils.getOptionCode(initialData['plane-port-of-departure']),
     flightDetailsCheck: initialData['is-this-your-flight']
   };
 }
@@ -93,7 +93,7 @@ function getPlaneJourneyDetails(initialData) {
 function getTrainJourneyDetails(initialData) {
 
   const inwardDeparturePort = initialData['train-departure-station-option-value'];
-  const inwardDeparturePortCode = inwardDeparturePort === initialData['train-departure-station'] ? '' : initialData['train-departure-station'];
+  const inwardDeparturePortCode = inwardDeparturePort === initialData['train-departure-station'] ? '' :  utils.getOptionCode(initialData['train-departure-station']);
 
   return {
     arrivalTravel: initialData['train-number'],
@@ -101,8 +101,8 @@ function getTrainJourneyDetails(initialData) {
     arrivalTime: initialData['train-arrival-time'],
     departureForUKDate: utils.getUtcDate(initialData['train-departure-date'] + ' ' + initialData['train-departure-time']),
     portOfArrival: initialData['train-arrival-station-option-value'],
-    portOfArrivalCode: initialData['train-arrival-station'],
-    inwardDepartureCountry: initialData['train-departure-country'],
+    portOfArrivalCode:  utils.getOptionCode(initialData['train-arrival-station']),
+    inwardDepartureCountry:  utils.getOptionCode(initialData['train-departure-country']),
     inwardDeparturePort: inwardDeparturePort,
     inwardDeparturePortCode: inwardDeparturePortCode
   };
@@ -111,10 +111,10 @@ function getTrainJourneyDetails(initialData) {
 function getBoatJourneyDetails(initialData) {
 
   const inwardDeparturePort = initialData['boat-port-of-departure-option-value'];
-  const inwardDeparturePortCode = inwardDeparturePort === initialData['boat-port-of-departure'] ? '' : initialData['boat-port-of-departure'];
+  const inwardDeparturePortCode = inwardDeparturePort === initialData['boat-port-of-departure'] ? '' : utils.getOptionCode(initialData['boat-port-of-departure']);
 
   const portOfArrival = initialData['boat-port-of-arrival-option-value'];
-  const portOfArrivalCode = portOfArrival === initialData['boat-port-of-arrival'] ? '' : initialData['boat-port-of-arrival'];
+  const portOfArrivalCode = portOfArrival === initialData['boat-port-of-arrival'] ? '' : utils.getOptionCode(initialData['boat-port-of-arrival']);
 
   return {
     arrivalTravel: initialData['boat-name'],
@@ -123,7 +123,7 @@ function getBoatJourneyDetails(initialData) {
     departureForUKDate: utils.getUtcDate(initialData['boat-date-of-departure'] + ' ' + initialData['boat-time-of-departure']),
     portOfArrival: portOfArrival,
     portOfArrivalCode: portOfArrivalCode,
-    inwardDepartureCountry: initialData['boat-country-of-departure'],
+    inwardDepartureCountry: utils.getOptionCode(initialData['boat-country-of-departure']),
     inwardDeparturePort: inwardDeparturePort,
     inwardDeparturePortCode: inwardDeparturePortCode
   };
