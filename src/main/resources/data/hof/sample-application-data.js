@@ -12,7 +12,7 @@ const samplePassportData = {
   'passport-expiry-date-month': '5',
   'passport-expiry-date-year': '1998',
   'passport-issue-place': 'Dubai',
-  'country-of-birth': 'UAE',
+  'country-of-birth': 'UAE_United Arab Emirates',
   'passport-issue-date-formatted': '19/04/1993',
   'passport-expiry-date-formatted': '27/05/1998',
   'check-passport-image': 'Yes',

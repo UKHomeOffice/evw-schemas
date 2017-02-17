@@ -24,7 +24,7 @@ function transformPassportData(initialData) {
       placeOfBirth: initialData['place-of-birth'],
       anyOtherNames: utils.existsIfEqual(initialData['other-names'], 'Yes', initialData['enter-other-names']),
       nationality: initialData.nationality,
-      countryOfBirth: initialData['country-of-birth'],
+      countryOfBirth: utils.getOptionCode(initialData['country-of-birth']),
       holdOtherNationalities: initialData['have-other-nationalities'],
       otherNationalities: utils.existsIfEqual(initialData['have-other-nationalities'], 'Yes', initialData['other-nationalities']),
       heldPreviousNationalities: initialData['had-previous-nationalities'],
