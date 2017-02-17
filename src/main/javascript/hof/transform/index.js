@@ -43,7 +43,7 @@ function transformContactDetailsData(initialData) {
         initialData['home-address-2'] || '',
         initialData['home-address-3'] || '',
         initialData['home-address-4'] || '',
-        initialData['home-country'] || '',
+        utils.getOptionCode(initialData['home-country']) || '',
         initialData['home-postcode'] || ''
       ],
       mobilePhoneNumber: initialData.mobile,
