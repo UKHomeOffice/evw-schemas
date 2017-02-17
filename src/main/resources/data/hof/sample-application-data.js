@@ -45,7 +45,7 @@ const sampleContactDetailsData = {
   'home-address-3': 'Westminster',
   'home-address-4': 'London',
   'home-postcode': 'SW1P 4DF',
-  'home-country': 'UK',
+  'home-country': 'GBR_United Kingdom',
   'home-phone': '+217-84-6087337',
   'mobile': '+344-59-7767795',
   'country-applied-from': 'OMN_Oman',

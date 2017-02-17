@@ -111,7 +111,7 @@ describe('apps/common/models/transform', function() {
             '2 Marsham Street',
             'Westminster',
             'London',
-            'UK',
+            'GBR',
             'SW1P 4DF'
           ],
           'mobilePhoneNumber': '+344-59-7767795',
