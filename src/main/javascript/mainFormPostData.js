@@ -97,7 +97,6 @@ function transformData(result) {
             flightDetailsCheck: isFlightDetailsCheckValid(result, result.flightDetailsCheck)
         }),
         miscellaneous: parsing.withoutEmpty({
-            invitationCode: result.invitation,
             onBehalfOfMinor: result.onBehalfOfMinor,
             asAnAgent: result.asAnAgent,
             completersContactDetails: result.completersContactDetails,

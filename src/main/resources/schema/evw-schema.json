@@ -651,10 +651,6 @@
     "miscellaneous": {
       "type": "object",
       "properties": {
-        "invitationCode": {
-          "id": "invitationCode",
-          "type": "string"
-        },
         "onBehalfOfMinor": {
           "id": "onBehalfOfMinor",
           "type": "string",
