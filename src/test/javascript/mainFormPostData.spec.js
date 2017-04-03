@@ -115,8 +115,7 @@ describe('mainFormPostData', function () {
             onBehalfOfMinor: expectedData.miscellaneous.onBehalfOfMinor,
             asAnAgent: expectedData.miscellaneous.asAnAgent,
             completersContactDetails: expectedData.miscellaneous.completersContactDetails,
-            completersEmailAddress: expectedData.miscellaneous.completersEmailAddress,
-            invitation: expectedData.miscellaneous.invitationCode
+            completersEmailAddress: expectedData.miscellaneous.completersEmailAddress
         };
 
         var actualData = mainFormPostData.transformData(record);
