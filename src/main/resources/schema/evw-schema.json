@@ -560,7 +560,9 @@
         "arrivalTime",
         "ukAddress",
         "reasonForTravel",
-        "travelWithOthers"
+        "travelWithOthers",
+        "visitMoreThanOnce",
+        "ukVisitPhoneNumber"
       ],
       "dependencies": {
         "travelBy": {
