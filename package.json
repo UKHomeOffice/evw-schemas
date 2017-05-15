@@ -9,7 +9,7 @@
     "sinon": "^1.17.6"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha src/test/javascript/ --recursive"
+    "test": "./node_modules/mocha/bin/mocha test --recursive"
   },
   "dependencies": {
     "moment": "^2.10.6",

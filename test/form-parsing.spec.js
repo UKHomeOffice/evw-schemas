@@ -1,7 +1,7 @@
 'use strict';
 
 require('chai').should();
-const parsing = require('../../main/javascript/form-parsing');
+const parsing = require('../lib/form-parsing');
 
 let fixture = {
     foo: false,

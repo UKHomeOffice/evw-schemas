@@ -1,7 +1,7 @@
 
 var assert = require('chai').assert;
-var expectedData = require('../../main/javascript/index').evw.mainForm.testData;
-var mainFormPostData = require('../../main/javascript/index').evw.mainForm.mainFormPostData;
+var expectedData = require('../index').evw.mainForm.testData;
+var mainFormPostData = require('../index').evw.mainForm.mainFormPostData;
 var moment = require('moment');
 
 
@@ -123,7 +123,7 @@ describe('mainFormPostData', function () {
     });
 
     describe('payment object', function () {
-        var fix = require('../fixtures/pending-post');
+        var fix = require('./fixtures/pending-post');
         it('should include falsey values', function () {
             mainFormPostData.transformData(fix).payment
             .should.contain.any.keys({'paid':false});
