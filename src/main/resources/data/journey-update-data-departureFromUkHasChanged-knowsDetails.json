@@ -1,1 +1,21 @@
-data/journey-update-data-departureFromUkHasChanged-knowsDetails.json
+{
+    "membershipNumber" : "EVW123456",
+    "token" : "74d3e5a47154150525964d90d0a99138a2633b49fbd9f829f9387414c1a458ef",
+    "arrivalTravel" : "BA002",
+    "arrivalDate" : "2016-11-26",
+    "arrivalTime" : "08:45",
+    "departureForUKDate" : "2016-11-26",
+    "departureForUKTime" : "14:11",
+    "portOfArrival" : "London Gatwick",
+    "portOfArrivalCode" : "LGW",
+    "inwardDepartureCountry": "FRA",
+    "inwardDeparturePort": " Paris",
+    "inwardDeparturePortCode": "PAR",
+    "flightDetailsCheck": "Yes",
+    "haveDepartureFromUkDetailsChanged" : "Yes",
+    "knowDepartureDetails" : "Yes",
+    "departureTravel" : "BA123",
+    "portOfDeparture" : "London Heathrow",
+    "departureDate" : "2017-11-27",
+    "dateCreated": "2016-07-13 00:00:00"
+}

@@ -1,1 +1,22 @@
-schema/imported-verification-response-schema.json
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://www.gov.uk/schema/imported-verification-response",
+  "type": "object",
+  "properties": {
+    "imported": {
+      "type": "array",
+      "items": {
+        "type" : "string",
+        "pattern": "[A-Z\\d]{8}"
+      }
+    },
+    "notImported": {
+      "type": "array",
+      "items": {
+        "type" : "string",
+        "pattern": "[A-Z\\d]{8}"
+      }
+    }
+  },
+  "additionalProperties": false
+}
