@@ -5,9 +5,10 @@
   "version": "0.1.0",
   "devDependencies": {
     "chai": "^3.4.1",
-    "eslint": "^3.19.0",
-    "eslint-plugin-mocha": "^4.9.0",
+    "eslint": "^2.11.1",
     "eslint-config-homeoffice": "^1.0.0",
+    "eslint-plugin-mocha": "^4.9.0",
+    "jsonschema": "^1.1.1",
     "mocha": "^2.2.5",
     "sinon": "^1.17.6"
   },
