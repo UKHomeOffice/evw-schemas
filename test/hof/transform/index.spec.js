@@ -493,7 +493,9 @@ describe('apps/common/models/transform', function() {
 
     ['Plane', 'Train', 'Boat', 'Land', 'Private Plane', 'Manual Entry Plane'].forEach(function(travelMethod) {
       it(`transforms a complete ${travelMethod} application`, function() {
-        return transform.transformData(sampleApplicationData[`sampleComplete${travelMethod.replace(/\s/g, '')}Application`]).then(result => {
+        return transform.transformData(
+          sampleApplicationData[`sampleComplete${travelMethod.replace(/\s/g, '')}Application`]
+        ).then(result => {
           transform.transformPassportData.should.have.been.calledOnce;
           transform.transformPassportImageData.should.have.been.calledOnce;
           transform.transformContactDetailsData.should.have.been.calledOnce;
@@ -509,7 +511,8 @@ describe('apps/common/models/transform', function() {
           result.should.have.property('payment');
           result.should.have.property('objectId');
           result.should.have.property('applicationReference');
-          result.journey.should.have.property('travelBy', travelMethod === 'Manual Entry Plane' ? 'Plane': travelMethod);
+          var travelby = travelMethod === 'Manual Entry Plane' ? 'Plane' : travelMethod;
+          result.journey.should.have.property('travelBy', travelby);
         });
       });
     });
