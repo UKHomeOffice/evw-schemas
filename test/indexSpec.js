@@ -2,7 +2,7 @@
  * Created by robin on 06/08/15.
  */
 
-var schemas = require('../../main/javascript/index');
+var schemas = require('../index');
 var expect = require('chai').expect;
 
 describe('evw schemas', function () {

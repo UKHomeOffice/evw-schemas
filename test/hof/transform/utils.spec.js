@@ -2,7 +2,7 @@
 
 const chai = require('chai');
 const expect = chai.expect;
-const utils = require('../../../../../src/main/javascript/hof/transform/utils');
+const utils = require('../../../lib/hof/transform/utils');
 
 const data = {
   prop1: 'abc',

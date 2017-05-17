@@ -9,11 +9,11 @@
     "sinon": "^1.17.6"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha src/test/javascript/ --recursive"
+    "test": "./node_modules/mocha/bin/mocha test --recursive"
   },
   "dependencies": {
+    "lodash": "^4.17.2",
     "moment": "^2.10.6",
-    "moment-timezone": "^0.5.3",
-    "lodash": "^4.17.2"
+    "moment-timezone": "^0.5.3"
   }
 }

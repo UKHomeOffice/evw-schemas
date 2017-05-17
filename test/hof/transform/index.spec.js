@@ -1,8 +1,8 @@
 'use strict';
 
 const sinon = require('sinon');
-const transform = require('../../../../../src/main/javascript/hof/transform');
-const sampleApplicationData = require('../../../../main/resources/data/hof/sample-application-data');
+const transform = require('../../../lib/hof/transform');
+const sampleApplicationData = require('../../../data/hof/sample-application-data');
 const sampleAppWithExtraProperties = {
   invalidProperty1: 'value1',
   'invalid-property2': 'value2'
