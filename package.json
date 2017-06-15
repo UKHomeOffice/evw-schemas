@@ -13,7 +13,7 @@
     "sinon": "^1.17.6"
   },
   "scripts": {
-    "lint": "./node_modules/eslint/bin/eslint.js lib test"
+    "lint": "./node_modules/eslint/bin/eslint.js lib test",
     "test": "./node_modules/mocha/bin/mocha"
   },
   "dependencies": {
