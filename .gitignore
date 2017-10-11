@@ -27,5 +27,6 @@ project/plugins/project/
 
 # node
 node_modules/
+package-lock.json
 
 .DS_Store
