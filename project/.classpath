@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="var" path="USER_HOME/.ivy2/cache/org.osgi/org.osgi.core/jars/org.osgi.core-4.3.1.jar"/>
+	<classpathentry kind="output" path="target/idea-classes"/>
+</classpath>

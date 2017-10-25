@@ -1,0 +1,28 @@
+{
+  "name": "evw-schemas",
+  "description": "Evw Schemas",
+  "main": "src/main/javascript/index.js",
+  "version": "0.1.0",
+  "engines": {
+    "node": "^6.11.4",
+    "npm": "^5.4.2"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "eslint": "^2.11.1",
+    "eslint-config-homeoffice": "^1.0.0",
+    "eslint-plugin-mocha": "^4.9.0",
+    "jsonschema": "^1.1.1",
+    "mocha": "^2.2.5",
+    "sinon": "^1.17.6"
+  },
+  "scripts": {
+    "lint": "./node_modules/eslint/bin/eslint.js lib test",
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "dependencies": {
+    "lodash": "^4.17.2",
+    "moment": "^2.10.6",
+    "moment-timezone": "^0.5.3"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "objectId": "558d7997ac7ed77d28c6ea92",
+  "passport": {
+    "givenNames": "Stella",
+    "checkGivenNames": "Stella",
+    "surname": "Burgess",
+    "checkSurname": "Burgess",
+    "dateOfBirth": "1985-04-18",
+    "expiryDate": "2023-01-14",
+    "gender": "F",
+    "issueDate": "2001-06-10",
+    "nationality": "OMN",
+    "passportNumber": "575ewe",
+    "countryOfBirth": "KWT",
+    "placeOfBirth": "Eligendi occaecat ipsum similique reprehenderit ab mollitia voluptatem sit lorem",
+    "anyOtherNames" : "The queen of England",
+    "placeOfIssue": "Mollitia obcaecati",
+    "holdOtherNationalities": "No",
+    "heldPreviousNationalities": "No"
+  },
+  "payment": {
+    "orderCode": "EVW000000001",
+    "feeInPence": 2000,
+    "paymentDate": "2015-06-26 17:11:12",
+    "paid": false
+  },
+  "contactDetails": {
+    "emailAddress": "bruce.wayne@gmail.com",
+    "secondEmail" : "kahu@gmail.com",
+    "homeAddress" : [
+        "homeAddress1",
+        "homeAddress2",
+        "homeAddress3",
+        "homeAddress4",
+        "KWT",
+        "postcode"
+    ],
+    "phoneNumber" : "+20 555 3202",
+    "mobilePhoneNumber" : "+20 555 3202",
+    "countryAppliedFrom" : "Zambia",
+    "countryAppliedFromCode" : "ZMB",
+    "areYouEmployed" : "No"
+  },
+  "journey" : {
+    "travelBy": "Land",
+    "arrivalDate" : "2015-11-26",
+    "arrivalTime" : "21:45",
+    "ukAddress" : [
+        "UkAddress1",
+        "UkAddress2",
+        "UkAddress3",
+        "UkAddress4",
+        "Postcode"
+    ],
+    "ukVisitPhoneNumber": "0793487837429",
+    "visitMoreThanOnce": "No",
+    "knowDepartureDetails": "No",
+    "ukDuration": "1 - 3 months",
+    "reasonForTravel": "to see the Queen",
+    "travelWithOthers": "No",
+    "flightDetailsCheck" : "No"
+  },
+  "miscellaneous" : {
+    "onBehalfOfMinor" : "No",
+    "asAnAgent" : "No"
+  },
+  "passportFileId": "558d7997ac7ed77d28c6ea93",
+  "applicationReference": "QVQZE4C2"
+}

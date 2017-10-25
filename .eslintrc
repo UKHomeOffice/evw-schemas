@@ -1,0 +1,30 @@
+# 0 - disable
+#     Rules that more harmful than useful, or just buggy.
+#
+# 1 - warning
+#     Rules that we didn't encounter yet.
+#     You can safely ignore them, but I'd like to know
+#     any interesting use-cases they forbid.
+#
+# 2 - error
+#     Rules that have proven to be useful, please follow them.
+#
+
+extends:
+- "homeoffice/config/default"
+
+env:
+  es6: true
+  node: true
+rules:
+  # less important ones
+  new-cap: 1 # new Foo()
+  no-bitwise: 1 # no x &= y; for you
+  no-debugger: 1
+  no-console: 1
+  no-process-env: 1
+  consistent-return: 1
+  # no-reserved-keys: 2 # disallow reserved words being used as object literal keys (off by default)
+  filenames/match-regex: [2, "^[a-z0-9-.]+$", true]
+  space-before-function-paren: 0
+
