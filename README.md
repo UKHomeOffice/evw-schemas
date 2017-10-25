@@ -4,7 +4,7 @@ Electronic Visa Waiver Schemas
 [![Build Status](https://travis-ci.org/UKHomeOffice/evw-schemas.svg?branch=master)](https://travis-ci.org/UKHomeOffice/evw-schemas)
 [![npm](https://img.shields.io/npm/v/evw-schemas.svg)](https://www.npmjs.com/package/evw-schemas)
 
-JSON Schema files to allow validation of messages between Home Office systems for EVW
+JSON Schema files to allow validation of messages between Home Office systems for EVW 
 
 Introduction
 ------------
