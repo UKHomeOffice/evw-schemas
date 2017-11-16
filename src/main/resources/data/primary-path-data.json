@@ -22,7 +22,8 @@
     "orderCode": "EVW000000001",
     "feeInPence": 2000,
     "paymentDate": "2015-06-26 17:11:12",
-    "paid":true
+    "paid":true,
+    "paymentId": "this-is-a-long-string"
   },
   "contactDetails": {
     "emailAddress": "bruce.wayne@gmail.com",
@@ -81,3 +82,4 @@
   "passportFileId": "558d7997ac7ed77d28c6ea93",
   "applicationReference": "QVQZE4C2"
 }
+

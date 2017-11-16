@@ -241,6 +241,10 @@
             true,
             false
           ]
+        },
+        "paymentId": {
+          "id": "paymentId",
+          "type": "string"
         }
       },
       "additionalProperties": false,
