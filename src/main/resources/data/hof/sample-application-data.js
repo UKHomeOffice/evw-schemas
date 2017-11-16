@@ -84,7 +84,8 @@ const samplePaymentData = {
   orderCode: 'EVW-a4084857-1f42-4214-a364-3d6951cf1f2b',
   fee: '1500',
   paymentDate: new Date('2016-02-15 12:30:00'),
-  paid: true
+  paid: true,
+  paymentId: 'ambarabacicicoco'
 };
 
 const sampleReferenceData = {
