@@ -428,7 +428,8 @@ describe('apps/common/models/transform', function() {
           'feeInPence': NaN,
           'orderCode': 'EVW-a4084857-1f42-4214-a364-3d6951cf1f2b',
           'paid': undefined,
-          'paymentDate': ''
+          'paymentDate': '',
+          'paymentId': undefined
         }
       });
     });
@@ -439,7 +440,8 @@ describe('apps/common/models/transform', function() {
           'feeInPence': 1500,
           'orderCode': 'EVW-a4084857-1f42-4214-a364-3d6951cf1f2b',
           'paid': true,
-          'paymentDate': '2016-02-15 12:30:00'
+          'paymentDate': '2016-02-15 12:30:00',
+          'paymentId': '4e39d770-c007-448c-be07-11ec18a69ca8'
         }
       });
     });
