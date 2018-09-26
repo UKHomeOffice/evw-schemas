@@ -1,6 +1,8 @@
 Electronic Visa Waiver Schemas
 ==============================
 
+Gitlab is considered the correct version of this library and has been moved to ACP. Do not use the version hosted on github please.
+
 [![Build Status](https://travis-ci.org/UKHomeOffice/evw-schemas.svg?branch=master)](https://travis-ci.org/UKHomeOffice/evw-schemas)
 [![npm](https://img.shields.io/npm/v/evw-schemas.svg)](https://www.npmjs.com/package/evw-schemas)
 
