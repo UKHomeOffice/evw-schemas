@@ -1,0 +1,31 @@
+{
+  "membershipNumber": "C12345",
+  "token": "HIDOSA",
+  "arrival" : {
+    "arrivalTravel": "Land",
+    "arrivalDate" : "2015-11-26",
+    "arrivalTime" : "21:45",
+    "departureForUKDate": "2018-01-01",
+    "departureForUKTime": "04:35",
+    "inwardDepartureCountry": "FRA",
+    "inwardDeparturePort": "Paris",
+    "inwardDeparturePortCode": "PSX",
+    "portOfArrival": "London Heathrow",
+    "portOfArrivalCode": "LHR",
+    "flightDetailsCheck" : "No"
+  },
+  "departure" : {
+    "knowDepartureDetails": "No",
+    "ukDuration": "1 - 3 months"
+  },
+  "accommodation" : {
+    "ukAddress" : [
+      "UkAddress1",
+      "UkAddress2",
+      "UkAddress3",
+      "UkAddress4",
+      "Postcode"
+    ],
+    "ukVisitPhoneNumber": "0793487837429"
+  }
+}
