@@ -1,0 +1,271 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "/",
+  "type": "object",
+  "required": [
+    "membershipNumber",
+    "token"
+  ],
+  "properties": {
+      "membershipNumber": {
+        "id": "membershipNumber",
+        "type": "string",
+        "maxLength":25
+      },
+      "token": {
+        "id": "token",
+        "type": "string",
+        "maxLength":64
+      },
+      "arrival" : {
+        "id" : "arrival",
+        "type": "object",
+        "required" : [
+          "arrivalTravel",
+          "arrivalDate",
+          "arrivalTime",
+          "departureForUKDate",
+          "departureForUKTime",
+          "portOfArrival",
+          "portOfArrivalCode",
+          "inwardDepartureCountry",
+          "inwardDeparturePort",
+          "inwardDeparturePortCode",
+          "flightDetailsCheck"
+        ],
+        "properties": {
+          "arrivalTravel": {
+            "id": "arrivalTravel",
+            "type": "string",
+            "enum": [
+              "Plane",
+              "Train",
+              "Boat",
+              "Land",
+              "Private Plane"
+            ]
+          },
+          "arrivalDate": {
+            "id": "arrivalDate",
+            "type": "string",
+            "pattern": "^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"
+          },
+          "arrivalTime": {
+            "id": "arrivalTime",
+            "type": "string",
+            "pattern": "^([0-9]{2}):([0-9]{2})$"
+          },
+          "departureForUKDate": {
+            "id": "departureForUKDate",
+            "type": "string",
+            "pattern": "^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"
+          },
+          "departureForUKTime": {
+            "id": "arrivalTime",
+            "type": "string",
+            "pattern": "^([0-9]{2}):([0-9]{2})$"
+          },
+          "portOfArrival": {
+            "id": "portOfArrival",
+            "type": "string",
+            "maxLength": 95
+          },
+          "portOfArrivalCode": {
+            "id": "portOfArrivalCode",
+            "type": "string",
+            "maxLength": 3
+          },
+          "inwardDepartureCountry": {
+            "id": "inwardDepartureCountry",
+            "type": "string",
+            "maxLength": 3
+          },
+          "inwardDeparturePort": {
+            "id": "inwardDeparturePort",
+            "type": "string",
+            "maxLength": 95
+          },
+          "inwardDeparturePortCode": {
+            "id": "inwardDeparturePortCode",
+            "type": "string",
+            "maxLength": 5
+          },
+          "flightDetailsCheck": {
+            "id": "flightDetailsCheck",
+            "type": "string",
+            "enum": [
+              "Yes",
+              "No"
+            ]
+          }
+        }
+      },
+      "departure" : {
+        "id": "departure",
+        "type": "object",
+        "properties": {
+          "knowDepartureDetails": {
+            "id": "knowDepartureDetails",
+            "type": "string",
+            "enum": [
+              "Yes",
+              "No"
+            ]
+          },
+          "departureDate": {
+            "id": "departureDate",
+            "type": "string",
+            "pattern": "^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"
+          },
+          "portOfDeparture": {
+            "id": "portOfDeparture",
+            "type": "string",
+            "maxLength": 95
+          },
+          "portOfDepartureCode": {
+            "id": "portOfDepartureCode",
+            "type": "string",
+            "maxLength": 3
+          },
+          "travelBy": {
+            "id": "travelBy",
+            "type": "string",
+            "enum": [
+              "Plane",
+              "Train",
+              "Boat",
+              "Land",
+              "Private Plane"
+            ]
+          },
+          "travelMethodLand": {
+            "id": "travelMethodLand",
+            "type": "string",
+            "maxLength":50
+          },
+          "departureTravel": {
+            "id": "departureTravel",
+            "type": "string",
+            "maxLength":30
+          },
+          "ukDuration": {
+            "id": "ukDuration",
+            "type": "string"
+          }
+        },
+        "dependencies": {
+          "travelBy": {
+            "oneOf": [
+              {
+                "properties": {
+                  "travelBy": {
+                    "enum": ["Land"]
+                  }
+                },
+                "not": { "required": ["arrivalTravel"] },
+                "not": { "required": ["departureForUKDate"] },
+                "not": { "required": ["inwardDepartureCountry"] },
+                "not": { "required": ["inwardDeparturePort"] }
+              },
+              {
+                "properties": {
+                  "travelBy": {
+                    "enum": [
+                      "Boat",
+                      "Plane",
+                      "Train",
+                      "Private Plane"
+                    ]
+                  }
+                },
+                "required": [
+                  "arrivalTravel",
+                  "departureForUKDate",
+                  "inwardDepartureCountry",
+                  "inwardDeparturePort",
+                  "portOfArrival"
+                ]
+              }
+            ]
+          },
+          "knowDepartureDetails": {
+            "oneOf": [
+              {
+                "properties": {
+                  "knowDepartureDetails": {
+                    "enum": ["Yes"]
+                  }
+                },
+                "required": [
+                  "departureTravel",
+                  "portOfDeparture",
+                  "departureDate"
+                ],
+                "not": {"required": ["ukDuration"]}
+              },
+              {
+                "properties": {
+                  "knowDepartureDetails": {
+                    "enum": ["No"]
+                  }
+                },
+                "required": ["ukDuration"],
+                "not": { "required": ["departureTravel"] },
+                "not": { "required": ["portOfDeparture"] },
+                "not": { "required": ["portOfDepartureCode"] },
+                "not": { "required": ["departureDate"] }
+              }
+            ]
+          }
+        }
+      },
+      "accommodation" : {
+        "id": "accommodation",
+        "type": "object",
+        "required" : [
+          "ukAddress",
+          "ukVisitPhoneNumber"
+        ],
+        "properties": {
+          "ukAddress": {
+            "id": "ukAddress",
+            "type": "array",
+            "items": [
+              {
+                "id": "0",
+                "type": "string",
+                "maxLength": 35
+              },
+              {
+                "id": "1",
+                "type": "string",
+                "maxLength": 35
+              },
+              {
+                "id": "2",
+                "type": "string",
+                "maxLength": 35
+              },
+              {
+                "id": "3",
+                "type": "string",
+                "maxLength": 35
+              },
+              {
+                "id": "4",
+                "type": "string",
+                "maxLength": 35
+              }
+            ]
+          },
+          "ukVisitPhoneNumber": {
+            "id": "ukVisitPhoneNumber",
+            "type": "string",
+            "maxLength": 20,
+            "minLength": 11,
+            "pattern": "^\\+?[0-9-()\\s]+$"
+          }
+        }
+      }
+    }
+  }
