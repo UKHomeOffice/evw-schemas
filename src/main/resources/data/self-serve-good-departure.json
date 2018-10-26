@@ -3,9 +3,6 @@
   "token": "HIDOSA",
   "departure" : {
     "knowDepartureDetails": "Yes",
-    "inwardDepartureCountry": "JAM",
-    "inwardDeparturePort": " Kuwait",
-    "inwardDeparturePortCode": "KWT",
     "departureDate": "2015-06-28",
     "portOfDeparture": "London Gatwick",
     "portOfDepartureCode": "LGW",

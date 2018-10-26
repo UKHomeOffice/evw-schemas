@@ -89,25 +89,36 @@ class SelfServeSchemaSpec extends Specification with Json with JsonFormats {
       schema.validate(badJson) must beLike[JValue Or JsonError] {
         case Bad(JsonError(_, Some(error), _)) => error must contain("""instance failed to match exactly one schema""")
       }
-
     }
+
+    "knownDeparture with further details" in {
+      val goodJson = parse("""{
+        "membershipNumber": "C12345",
+        "token": "HIDOSA",
+        "departure" : {
+          "knowDepartureDetails": "Yes",
+          "departureTravel" : "BK003",
+          "portOfDeparture": "Heathrow",
+          "portOfDepartureCode": "LHR",
+          "departureDate": "2019-01-01"
+        }
+      }""")
+
+      schema.validate(goodJson) mustEqual Good(goodJson)
+  }
 
     "bad date format" in {
       val badJson = parse("""{
       "membershipNumber": "C12345",
       "token": "HIDOSA",
       "arrival" : {
-        "arrivalTravel": "Land",
+        "travelBy": "Land",
         "arrivalDate" : "2015-11--26",
         "arrivalTime" : "21:45",
-        "departureForUKDate": "2018-01-01",
-        "departureForUKTime": "04:35",
-        "inwardDepartureCountry": "FRA",
-        "inwardDeparturePort": "Paris",
-        "inwardDeparturePortCode": "PSX",
         "portOfArrival": "London Heathrow",
         "portOfArrivalCode": "LHR",
-        "flightDetailsCheck" : "No"
+        "flightDetailsCheck" : "No",
+        "travelLandMethod" : "Bus"
       }}""")
 
       schema.validate(badJson) must beLike[JValue Or JsonError] {

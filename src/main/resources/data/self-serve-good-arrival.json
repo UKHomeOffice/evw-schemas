@@ -2,16 +2,12 @@
   "membershipNumber": "C12345",
   "token": "HIDOSA",
   "arrival" : {
-    "arrivalTravel": "Land",
+    "travelBy": "Land",
     "arrivalDate" : "2015-11-26",
     "arrivalTime" : "21:45",
-    "departureForUKDate": "2018-01-01",
-    "departureForUKTime": "04:35",
-    "inwardDepartureCountry": "FRA",
-    "inwardDeparturePort": "Paris",
-    "inwardDeparturePortCode": "PSX",
-    "portOfArrival": "London Heathrow",
-    "portOfArrivalCode": "LHR",
-    "flightDetailsCheck" : "No"
+    "portOfArrival": "Nothern Ireland",
+    "portOfArrivalCode": "NI",
+    "flightDetailsCheck" : "No",
+    "travelLandMethod" : "Foot"
   }
 }
