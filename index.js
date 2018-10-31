@@ -12,6 +12,9 @@ var evw = {
   },
   updateJourney: {
     schema: require('./schema/evw-flight-journey-update-schema.json')
+  },
+  selfServe: {
+    schema: require('./src/main/resources/schema/evw-self-serve-schema.json')
   }
 };
 
