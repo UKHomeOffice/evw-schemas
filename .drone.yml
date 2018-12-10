@@ -5,7 +5,7 @@ pipeline:
     commands:
       - /root/entrypoint.sh
       - sbt clean test
-    image: quay.io/ukhomeofficedigital/scala-sbt:v0.3.1
+    image: quay.io/ukhomeofficedigital/scala-sbt:v0.4.0
     environment:
       - ARTIFACTORY_USERNAME=regt-build-bot
     secrets:
