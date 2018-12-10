@@ -27,6 +27,7 @@ pipeline:
       event: push
       branch: master
 
+
   publish_tag:
     commands:
       - /root/entrypoint.sh
