@@ -22,7 +22,7 @@ pipeline:
     secrets:
       - npm_config__auth
       - npm_config_registry
-      - npm_config_username
+      - npm_config_email
     environment:
       - NPM_CONFIG_ALWAYS_AUTH=true
     when:
