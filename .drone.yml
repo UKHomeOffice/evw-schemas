@@ -27,6 +27,21 @@ pipeline:
       event: push
       branch: master
 
+  publish_npm:
+    commands:
+      - npm i
+      - npm test
+      - npm publish
+    image: node:8
+    secrets:
+      - npm_config__auth
+      - npm_config_registry
+    environment:
+      - NPM_CONFIG_ALWAYS_AUTH=true
+    when:
+      event: push
+      branch: master
+
   publish_tag:
     commands:
       - /root/entrypoint.sh
