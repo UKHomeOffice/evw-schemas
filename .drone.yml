@@ -13,20 +13,6 @@ pipeline:
     when:
       event: push
 
-  publish:
-    commands:
-      - /root/entrypoint.sh
-      - sbt publish
-    image: quay.io/ukhomeofficedigital/scala-sbt:v0.3.1
-    environment:
-      - ARTIFACTORY_SERVER=https://artifactory.digital.homeoffice.gov.uk/
-      - ARTIFACTORY_USERNAME=regt-build-bot
-    secrets:
-      - ARTIFACTORY_PASSWORD
-    when:
-      event: push
-      branch: master
-
   publish_npm:
     commands:
       - npm i
@@ -38,6 +24,20 @@ pipeline:
       - npm_config_registry
     environment:
       - NPM_CONFIG_ALWAYS_AUTH=true
+    when:
+      event: push
+      branch: master
+
+  publish:
+    commands:
+      - /root/entrypoint.sh
+      - sbt publish
+    image: quay.io/ukhomeofficedigital/scala-sbt:v0.3.1
+    environment:
+      - ARTIFACTORY_SERVER=https://artifactory.digital.homeoffice.gov.uk/
+      - ARTIFACTORY_USERNAME=regt-build-bot
+    secrets:
+      - ARTIFACTORY_PASSWORD
     when:
       event: push
       branch: master
