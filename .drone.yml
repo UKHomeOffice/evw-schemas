@@ -1,19 +1,7 @@
 ---
 
 pipeline:
-  build:
-    commands:
-      - /root/entrypoint.sh
-      - sbt clean test
-    image: quay.io/ukhomeofficedigital/scala-sbt:v0.4.0
-    environment:
-      - ARTIFACTORY_USERNAME=regt-build-bot
-    secrets:
-      - ARTIFACTORY_PASSWORD
-    when:
-      event: push
-
-  publish_npm:
+  build_publish_npm:
     commands:
       - npm i
       - npm test
@@ -28,6 +16,18 @@ pipeline:
     when:
       event: push
       branch: master
+
+  build:
+    commands:
+      - /root/entrypoint.sh
+      - sbt clean test
+    image: quay.io/ukhomeofficedigital/scala-sbt:v0.4.0
+    environment:
+      - ARTIFACTORY_USERNAME=regt-build-bot
+    secrets:
+      - ARTIFACTORY_PASSWORD
+    when:
+      event: push
 
   publish:
     commands:
