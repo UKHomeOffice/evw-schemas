@@ -17,7 +17,6 @@ pipeline:
       event: push
       branch: master
 
-
   build:
     commands:
       - /root/entrypoint.sh
