@@ -18,13 +18,6 @@ then
   VERSION=${VERSION}-$CURRENT_BRANCH
 fi;
 
-# add -U to name if uncommitted changes in repo
-git status | grep "nothing to commit"
-if [[ $? -eq 1 ]];
-then
-  VERSION=${VERSION}-U
-fi;
-
 # remove leading v character from tag (v5.2 -> 5.2)
 VERSION=`echo $VERSION | cut -c 2-`
 
