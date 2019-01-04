@@ -38,7 +38,8 @@ pipeline:
   publish_scala:
     commands:
       - /root/entrypoint.sh
-      - sbt publish
+      - git reset --hard
+      - sbt clean +publish
     image: quay.io/ukhomeofficedigital/scala-sbt:v0.3.1
     environment:
       - ARTIFACTORY_SERVER=https://artifactory.digital.homeoffice.gov.uk/
