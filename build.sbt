@@ -1,26 +1,59 @@
+import sbt.Keys._
+import sbt._
+
+val moduleName = "evw-schemas"
+
+lazy val module = Project(id = moduleName, base = file("."))
+  .enablePlugins(GitVersioning)
+  .settings(
+    name := moduleName,
+    organization := "uk.gov.homeoffice",
+    scalaVersion := "2.11.8",
+    scalacOptions ++= Seq(
+      "-feature",
+      "-language:implicitConversions",
+      "-language:higherKinds",
+      "-language:existentials",
+      "-language:reflectiveCalls",
+      "-language:postfixOps",
+      "-Yrangepos",
+      "-Yrepl-sync"
+    ),
+    ivyScala := ivyScala.value map { _.copy(overrideScalaVersion = true) },
+    resolvers ++= Seq(
+      "Artifactory Snapshot Realm" at "http://artifactory.registered-traveller.homeoffice.gov.uk/artifactory/libs-snapshot-local/",
+      "Artifactory Release Realm" at "http://artifactory.registered-traveller.homeoffice.gov.uk/artifactory/libs-release-local/",
+      "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/",
+      "Sonatype Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/",
+      "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"),
+    libraryDependencies ++= Seq(
+    "uk.gov.homeoffice" %% "rtp-test-lib" % "1.3.1" withSources(),
+    "uk.gov.homeoffice" %% "rtp-io-lib" % "1.7.17" withSources()),
+    libraryDependencies ++= Seq(
+      "uk.gov.homeoffice" %% "rtp-test-lib" % "1.3.1" % Test classifier "tests" withSources(),
+      "uk.gov.homeoffice" %% "rtp-io-lib" % "1.7.17" % Test classifier "tests" withSources())
+  )
+
+git.useGitDescribe := true
+git.gitDescribePatterns := Seq("v?.?")
+git.gitTagToVersionNumber := { tag :String =>
+
+val branchTag = if (git.gitCurrentBranch.value == "master") "" else "-" + git.gitCurrentBranch.value
+val uncommit = if (git.gitUncommittedChanges.value) "-U" else ""
+
+tag match {
+  case v if v.matches("v\\d+.\\d+") => Some(s"$v.0${uncommit}".drop(1))
+  case v if v.matches("v\\d+.\\d+-.*") => Some(s"${v.replaceFirst("-",".")}${branchTag}${uncommit}".drop(1))
+  case _ => None
+}}
+
 publishTo := {
   val artifactory = sys.env.get("ARTIFACTORY_SERVER").getOrElse("http://artifactory.registered-traveller.homeoffice.gov.uk/")
-
-  if (isSnapshot.value)
-    Some("snapshot" at artifactory + "artifactory/libs-snapshot-local")
-  else
-    Some("release"  at artifactory + "artifactory/libs-release-local")
+  Some("release"  at artifactory + "artifactory/libs-release-local")
 }
 
 credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
 
-// Enable publishing the jar produced by `test:package`
 publishArtifact in (Test, packageBin) := true
-
-// Enable publishing the test API jar
 publishArtifact in (Test, packageDoc) := true
-
-// Enable publishing the test sources jar
 publishArtifact in (Test, packageSrc) := true
-
-assemblyMergeStrategy in assembly := {
-  case PathList("META-INF", "MANIFEST.MF") => MergeStrategy.discard
-  case PathList(ps @ _*) if ps.last endsWith ".java" => MergeStrategy.discard
-  case _ => MergeStrategy.first
-}
-
