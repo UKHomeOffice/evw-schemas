@@ -34,6 +34,11 @@ lazy val module = Project(id = moduleName, base = file("."))
       "uk.gov.homeoffice" %% "rtp-io-lib" % "1.7.17" % Test classifier "tests" withSources())
   )
 
+publishTo := {
+  val artifactory = sys.env.get("ARTIFACTORY_SERVER").getOrElse("http://artifactory.registered-traveller.homeoffice.gov.uk/")
+  Some("release"  at artifactory + "artifactory/libs-release-local")
+}
+
 git.useGitDescribe := true
 git.gitDescribePatterns := Seq("v?.?")
 git.gitTagToVersionNumber := { tag :String =>
@@ -45,11 +50,6 @@ tag match {
   case v if v.matches("v\\d+.\\d+-.*") => Some(s"${v.replaceFirst("-",".")}${branchTag}".drop(1))
   case _ => None
 }}
-
-publishTo := {
-  val artifactory = sys.env.get("ARTIFACTORY_SERVER").getOrElse("http://artifactory.registered-traveller.homeoffice.gov.uk/")
-  Some("release"  at artifactory + "artifactory/libs-release-local")
-}
 
 credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
 
