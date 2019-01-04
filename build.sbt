@@ -19,7 +19,6 @@ lazy val module = Project(id = moduleName, base = file("."))
       "-Yrangepos",
       "-Yrepl-sync"
     ),
-    ivyScala := ivyScala.value map { _.copy(overrideScalaVersion = true) },
     resolvers ++= Seq(
       "Artifactory Snapshot Realm" at "http://artifactory.registered-traveller.homeoffice.gov.uk/artifactory/libs-snapshot-local/",
       "Artifactory Release Realm" at "http://artifactory.registered-traveller.homeoffice.gov.uk/artifactory/libs-release-local/",
@@ -33,6 +32,8 @@ lazy val module = Project(id = moduleName, base = file("."))
       "uk.gov.homeoffice" %% "rtp-test-lib" % "1.3.1" % Test classifier "tests" withSources(),
       "uk.gov.homeoffice" %% "rtp-io-lib" % "1.7.17" % Test classifier "tests" withSources())
   )
+
+credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
 
 publishTo := {
   val artifactory = sys.env.get("ARTIFACTORY_SERVER").getOrElse("http://artifactory.registered-traveller.homeoffice.gov.uk/")
@@ -51,8 +52,3 @@ tag match {
   case _ => None
 }}
 
-credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
-
-publishArtifact in (Test, packageBin) := true
-publishArtifact in (Test, packageDoc) := true
-publishArtifact in (Test, packageSrc) := true
