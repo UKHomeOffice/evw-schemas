@@ -20,7 +20,7 @@ fi;
 
 # add -U to name if uncommitted changes in repo
 git status | grep "nothing to commit"
-if [[ $? -eq 0 ]];
+if [[ $? -eq 1 ]];
 then
   VERSION=${VERSION}-U
 fi;
