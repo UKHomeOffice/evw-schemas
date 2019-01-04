@@ -44,11 +44,9 @@ git.useGitDescribe := true
 git.gitDescribePatterns := Seq("v?.?")
 git.gitTagToVersionNumber := { tag :String =>
 
-val branchTag = if (git.gitCurrentBranch.value == "master") "" else "-" + git.gitCurrentBranch.value
-
-tag match {
-  case v if v.matches("v\\d+.\\d+") => Some(s"$v.0".drop(1))
-  case v if v.matches("v\\d+.\\d+-.*") => Some(s"${v.replaceFirst("-",".")}${branchTag}".drop(1))
-  case _ => None
-}}
-
+  tag match {
+    case v if v.matches("v\\d+.\\d+") => Some(s"$v.0".drop(1))
+    case v if v.matches("v\\d+.\\d+-.*") => Some(s"${v.replaceFirst("-",".")}".drop(1))
+    case _ => None
+  }
+}
