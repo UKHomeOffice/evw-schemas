@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "/",
+  "type": "object",
+  "required": [
+    "membershipNumber",
+    "token"
+  ],
+  "properties": {
+    "membershipNumber": {
+      "id": "membershipNumber",
+      "type": "string",
+      "maxLength":25
+    },
+    "token": {
+      "id": "token",
+      "type": "string",
+      "maxLength":64
+    }
+  }
+}
