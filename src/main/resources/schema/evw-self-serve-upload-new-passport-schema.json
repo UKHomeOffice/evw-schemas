@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "/",
+  "type": "object",
+  "required": [
+    "membershipNumber",
+    "token",
+    "passportFileId"
+  ],
+  "properties": {
+    "membershipNumber": {
+      "id": "membershipNumber",
+      "type": "string",
+      "maxLength":25
+    },
+    "token": {
+      "id": "token",
+      "type": "string",
+      "maxLength":64
+    },
+    "passportFileId": {
+      "id": "passportFileId",
+      "type": "string",
+      "pattern": "[0-9a-f]{24}"
+    }
+  }
+}
