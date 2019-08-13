@@ -1,24 +1,25 @@
 ---
 
 pipeline:
-  #build_publish_npm:
-  #  commands:
-  #    - bash -c ./set-node-package-version.sh
-  #    - npm i
-  #    - npm test
-  #    - npm publish
-  #  image: node:8
-  #  secrets:
-  #    - npm_config__auth
-  #    - npm_config_registry
-  #    - npm_config_email
-  #  environment:
-  #    - NPM_CONFIG_ALWAYS_AUTH=true
-  #  when:
-  #    event:
-  #      - push
-  #      - tag
-  #    branch: master
+  build_publish_npm:
+   commands:
+     - bash -c ./set-node-package-version.sh
+     - npm i
+     - npm run env
+     # - npm test
+     # - npm publish
+   image: node:8
+   secrets:
+     - npm_config__auth
+     - npm_config_registry
+     - npm_config_email
+   environment:
+     - NPM_CONFIG_ALWAYS_AUTH=true
+   when:
+     event:
+       - push
+       - tag
+     branch: master
 
   build_scala:
     commands:

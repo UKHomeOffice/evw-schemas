@@ -18,7 +18,8 @@
   },
   "scripts": {
     "lint": "./node_modules/eslint/bin/eslint.js lib test",
-    "test": "./node_modules/mocha/bin/mocha"
+    "test": "./node_modules/mocha/bin/mocha",
+    "env": "node ./lib/env.js"
   },
   "dependencies": {
     "lodash": "^4.17.2",
