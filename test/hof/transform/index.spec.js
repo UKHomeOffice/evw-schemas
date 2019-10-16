@@ -449,7 +449,7 @@ describe('apps/common/models/transform', function() {
 
   describe('#transformReferenceData', function() {
     it('ignores properties it does not know about', function() {
-      sampleAppWithExtraProperties.objectId = '123abc';
+      sampleAppWithExtraProperties._id = '123abc';
       transform.transformReferenceData(sampleAppWithExtraProperties).should.deep.equal({
         objectId: '123abc'
       });
