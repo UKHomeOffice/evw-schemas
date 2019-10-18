@@ -6,8 +6,8 @@ pipeline:
      - bash -c ./set-node-package-version.sh
      - npm i
      - npm run env
-     # - npm test
-     # - npm publish
+     - npm test
+     - npm publish
    image: node:8
    secrets:
      - npm_config__auth
