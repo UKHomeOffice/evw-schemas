@@ -15,9 +15,7 @@ pipeline:
    environment:
      - NPM_CONFIG_ALWAYS_AUTH=true
    when:
-     event:
-       - push
-       - tag
+     event: [push, tag]
      branch: master
 
   build_scala:
