@@ -3,7 +3,6 @@
 pipeline:
   build_publish_npm:
    commands:
-     - bash -c ./set-node-package-version.sh
      - npm i
      - npm run env
      - npm test
