@@ -89,7 +89,7 @@ const samplePaymentData = {
 };
 
 const sampleReferenceData = {
-  _id: '123abc',
+  objectId: '123abc',
   applicationReference: 'ABC123001'
 };
 
