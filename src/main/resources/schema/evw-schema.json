@@ -166,7 +166,7 @@
             {
               "properties": {
                 "nationality": {
-                  "enum": ["KWT", "QAT", "ARE"]
+                  "enum": ["KWT", "QAT", "ARE", "OMN"]
                 }
               },
               "required": ["name", "checkName"]

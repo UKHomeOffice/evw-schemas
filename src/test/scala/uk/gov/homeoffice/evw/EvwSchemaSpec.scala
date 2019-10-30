@@ -73,7 +73,7 @@ class EvwSchemaSpec extends Specification with Json with JsonFormats {
       schema validate {
         replace(json \ "passport" \ "nationality" -> "FR")
       } must beLike[JValue Or JsonError] {
-        case Bad(JsonError(_, Some(error), _)) => error must contain("""enum (possible values: [\"KWT\",\"QAT\",\"ARE\"])""")
+        case Bad(JsonError(_, Some(error), _)) => error must contain("""enum (possible values: [\"KWT\",\"QAT\",\"ARE\",\"OMN\"])""")
       }
     }
 
@@ -177,6 +177,16 @@ class EvwSchemaSpec extends Specification with Json with JsonFormats {
         case (key, _) => "secondEmail" == key
       }
       schema.validate(requiredJson) mustEqual Good(requiredJson)
+    }
+
+    "accept an omani application with the old 3 field name specification" in {
+        val Success(omaniThreeFieldJson) = jsonFromClasspath("/data/omani-threefield.json")
+        schema.validate(omaniThreeFieldJson) mustEqual Good(omaniThreeFieldJson)
+    }
+
+    "accept an omani application with the new single field name specification" in {
+        val Success(omaniOneFieldJson) = jsonFromClasspath("/data/omani-onefield.json")
+        schema.validate(omaniOneFieldJson) mustEqual Good(omaniOneFieldJson)
     }
   }
 }

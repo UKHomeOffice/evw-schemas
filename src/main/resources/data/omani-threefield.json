@@ -1,0 +1,89 @@
+{
+  "objectId": "558d7997ac7ed77d28c6ea92",
+  "passport": {
+    "givenNames" : "Stella",
+    "checkGivenNames" : "Stella",
+    "surname": "Burgess",
+    "checkSurname" : "Burgess",
+    "familyName" : "Al adin",
+    "passportNumber": "575ewe",
+    "expiryDate": "2023-01-14",
+    "issueDate": "2001-06-10",
+    "placeOfIssue": "Mollitia obcaecati",
+    "gender": "F",
+    "dateOfBirth": "1985-04-18",
+    "placeOfBirth": "Eligendi occaecat ipsum similique reprehenderit ab mollitia voluptatem sit lorem",
+    "anyOtherNames" : "The queen of England",
+    "nationality": "OMN",
+    "countryOfBirth": "OMN",
+    "holdOtherNationalities": "Yes",
+    "otherNationalities": "German",
+    "heldPreviousNationalities": "Yes",
+    "previousNationalities": "France"
+  },
+  "payment": {
+    "orderCode": "EVW000000001",
+    "feeInPence": 2000,
+    "paymentDate": "2015-06-26 17:11:12",
+    "paid":true,
+    "paymentId": "this-is-a-long-string"
+  },
+  "contactDetails": {
+    "emailAddress": "bruce.wayne@gmail.com",
+    "secondEmail" : "kahu@gmail.com",
+    "homeAddress" : [
+        "homeAddress1",
+        "homeAddress2",
+        "homeAddress3",
+        "homeAddress4",
+        "KWT",
+        "postcode"
+    ],
+    "mobilePhoneNumber" : "+20 555 3202",
+    "phoneNumber" : "+20 555 3202",
+    "countryAppliedFrom" : "Zambia",
+    "countryAppliedFromCode" : "ZMB",
+    "areYouEmployed" : "Yes",
+    "companyName" : "My company",
+    "occupation"  : "Mechanic"
+  },
+  "journey" : {
+    "travelBy": "Plane",
+    "arrivalTravel" : "BA001",
+    "arrivalDate" : "2015-11-26",
+    "arrivalTime" : "21:45",
+    "departureForUKDate" : "2015-06-26 17:11:00",
+    "portOfArrival" : "London Heathrow",
+    "portOfArrivalCode" : "LHR",
+    "ukAddress" : [
+        "UkAddress1",
+        "UkAddress2",
+        "UkAddress3",
+        "UkAddress4",
+        "Postcode"
+    ],
+    "ukVisitPhoneNumber": "0793487837429",
+    "visitMoreThanOnce": "No",
+    "knowDepartureDetails": "Yes",
+    "inwardDepartureCountry": "JAM",
+    "inwardDeparturePort": " Kuwait",
+    "inwardDeparturePortCode": "KWT",
+    "departureDate": "2015-06-28",
+    "portOfDeparture": "London Gatwick",
+    "portOfDepartureCode": "LGW",
+    "departureTravel": "BA002",
+    "reasonForTravel": "to see the Queen",
+    "travelWithOthers": "Yes",
+    "otherTravellers": "John Superman"
+  },
+  "miscellaneous" : {
+    "onBehalfOfMinor" : "No",
+    "asAnAgent" : "Yes",
+    "completersContactDetails" : "Bill Murray",
+    "completersEmailAddress" : "agent@test.com"
+  },
+  "passportFileId": "558d7997ac7ed77d28c6ea93",
+  "applicationReference": "QVQZE4C2"
+}
+
+
